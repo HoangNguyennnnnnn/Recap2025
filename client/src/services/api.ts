@@ -97,19 +97,6 @@ export interface ILetter {
   updatedAt: string;
 }
 
-export interface IVoiceNote {
-  _id: string;
-  location: string;
-  coordinates: {
-    lat: number;
-    lng: number;
-  };
-  audioUrl: string;
-  transcript?: string;
-  date: string;
-  createdAt: string;
-  updatedAt: string;
-}
 
 export interface ISecretMedia {
   _id: string;
@@ -437,57 +424,6 @@ export const fetchLetterById = async (id: string): Promise<ILetter> => {
       throw new Error('Letter not found.');
     }
     throw new Error('Failed to fetch letter.');
-  }
-
-  return response.json();
-};
-
-/**
- * Fetch all voice messages for the Echoes Map
- */
-export const fetchVoiceNotes = async (): Promise<IVoiceNote[]> => {
-  const token = getToken();
-
-  const response = await fetch(`${API_URL}/api/voice`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
-    },
-  });
-
-  if (!response.ok) {
-    if (response.status === 401) {
-      throw new Error('Unauthorized access. Please log in again.');
-    }
-    throw new Error('Failed to fetch voice notes.');
-  }
-
-  return response.json();
-};
-
-/**
- * Save a new voice note
- */
-export const postVoiceNote = async (data: {
-  location: string;
-  coordinates: { lat: number; lng: number };
-  audioUrl: string;
-  transcript?: string;
-  date: string;
-}): Promise<{ success: boolean; voiceNote: IVoiceNote }> => {
-  const token = getToken();
-
-  const response = await fetch(`${API_URL}/api/voice`, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  });
-
-  if (!response.ok) {
-    throw new Error('Failed to save voice note.');
   }
 
   return response.json();

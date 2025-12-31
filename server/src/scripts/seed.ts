@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import { Memory, Letter, VoiceNote, Comment, Reaction, HnaGallery, SecretMedia } from '../models/index.js';
+import { Memory, Letter, Comment, Reaction, HnaGallery, SecretMedia } from '../models/index.js';
 import { connectDatabase } from '../config/database.js';
 
 dotenv.config();
@@ -18,8 +18,6 @@ const seedDatabase = async () => {
     await Promise.all([
       Memory.deleteMany({}),
       Letter.deleteMany({}),
-      VoiceNote.deleteMany({}),
-      // Optional: keep metadata/comments/reactions or clear them too
       Comment.deleteMany({}),
       Reaction.deleteMany({}),
       HnaGallery.deleteMany({}),
@@ -103,26 +101,6 @@ const seedDatabase = async () => {
 
     await Letter.insertMany(letters);
 
-    // 4. Seed Voice Notes
-    console.log('🎤 Seeding Voice Notes...');
-    const voiceNotes = [
-      {
-        location: "Đà Lạt, Việt Nam",
-        coordinates: { lat: 11.9404, lng: 108.4373 },
-        audioUrl: "https://example.com/audio1.mp3", // Placeholder
-        transcript: "Tớ đang nhớ cậu giữa không khí se lạnh của Đà Lạt nè.",
-        date: new Date('2024-05-20')
-      },
-      {
-        location: "Hà Nội, Việt Nam",
-        coordinates: { lat: 21.0285, lng: 105.8542 },
-        audioUrl: "https://example.com/audio2.mp3", // Placeholder
-        transcript: "Hà Nội hôm nay đẹp lắm, nhưng nếu có cậu ở đây thì sẽ đẹp hơn nhiều.",
-        date: new Date('2024-04-10')
-      }
-    ];
-
-    await VoiceNote.insertMany(voiceNotes);
 
     // 5. Seed Hna Gallery Sets
     console.log('🌸 Seeding Hna Gallery Sets...');

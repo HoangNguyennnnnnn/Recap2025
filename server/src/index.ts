@@ -18,7 +18,7 @@ import mediaRouter from './routes/media.js';
 import authRouter from './routes/auth.js';
 import memoryRouter from './routes/memories.js';
 import lettersRouter from './routes/letters.js';
-import voiceRouter from './routes/voice.js';
+
 import { initializeSocket } from './socket/index.js';
 
 const app = express();
@@ -83,8 +83,6 @@ app.use('/api/memories', memoryRouter);
 // Secret Vault (Letters) routes
 app.use('/api/letters', lettersRouter);
 
-// Voice Notes routes
-app.use('/api/voice', voiceRouter);
 
 // Database initialization and server startup
 const startServer = async () => {
