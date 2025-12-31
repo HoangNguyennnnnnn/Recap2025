@@ -88,26 +88,28 @@ app.use('/api/voice', voiceRouter);
 
 // Database initialization and server startup
 const startServer = async () => {
+  // Start server FIRST so Render detects an open port immediately
+  httpServer.listen(PORT, () => {
+    console.log(`🚀 Server is listening on port ${PORT}`);
+    console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
+  });
+
   try {
     // Setup database event handlers
     setupDatabaseEventHandlers();
 
-    // Connect to MongoDB
+    // Connect to MongoDB (this takes time and might retry)
+    console.log('📡 Attempting to connect to MongoDB...');
     await connectDatabase();
 
     // Initialize Cloudinary (non-blocking if credentials not set)
     initializeCloudinary();
 
-    // Start server (Use httpServer.listen instead of app.listen)
-    httpServer.listen(PORT, () => {
-      console.log(`🚀 Server is running on port ${PORT}`);
-      console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
-      console.log(`📡 Media API: http://localhost:${PORT}/api/media`);
-      console.log(`🔌 Socket.io ready for connections`);
-    });
+    console.log(`🔌 Socket.io ready for connections`);
+    console.log(`📡 Media API ready`);
   } catch (error) {
-    console.error('💥 Failed to start server:', error);
-    process.exit(1);
+    console.error('💥 Database connection failed, but server is still listening:', error);
+    // We don't exit(1) here because we want to allow retries or manual intervention
   }
 };
 
