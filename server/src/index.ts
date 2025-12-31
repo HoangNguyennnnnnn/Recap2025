@@ -51,6 +51,9 @@ const corsOptions = {
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
 
+// Trust proxy for Render (fixes express-rate-limit issue)
+app.set('trust proxy', 1);
+
 app.use(cors(corsOptions));
 app.use(express.json());
 
