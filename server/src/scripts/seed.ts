@@ -1,6 +1,5 @@
 import dotenv from 'dotenv';
-import mongoose from 'mongoose';
-import { Memory, Letter, VoiceNote, PhotoMetadata, Comment, Reaction, HnaGallery, SecretMedia } from '../models/index.js';
+import { Memory, Letter, VoiceNote, Comment, Reaction, HnaGallery, SecretMedia } from '../models/index.js';
 import { connectDatabase } from '../config/database.js';
 
 dotenv.config();
