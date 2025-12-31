@@ -1,0 +1,26 @@
+# Agent Metadata
+.apm/
+.claude/
+
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+venv/
+.venv/
+
+# Production / Build
+dist/
+dist-ssr/
+client/dist/
+server/dist/
+
+# OS Files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# IDEs
+.vscode/
+.idea/

@@ -1,13 +1,13 @@
 import { v2 as cloudinary } from 'cloudinary';
 
-const CLOUDINARY_CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME;
-const CLOUDINARY_API_KEY = process.env.CLOUDINARY_API_KEY;
-const CLOUDINARY_API_SECRET = process.env.CLOUDINARY_API_SECRET;
-
 /**
  * Initialize Cloudinary SDK with environment credentials
  */
 export const initializeCloudinary = (): void => {
+  const CLOUDINARY_CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME;
+  const CLOUDINARY_API_KEY = process.env.CLOUDINARY_API_KEY;
+  const CLOUDINARY_API_SECRET = process.env.CLOUDINARY_API_SECRET;
+
   if (!CLOUDINARY_CLOUD_NAME || !CLOUDINARY_API_KEY || !CLOUDINARY_API_SECRET) {
     console.warn('⚠️  Cloudinary credentials not set in environment variables');
     console.warn('   Set CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, and CLOUDINARY_API_SECRET');
@@ -29,7 +29,11 @@ export const initializeCloudinary = (): void => {
  * Check if Cloudinary is configured
  */
 export const isCloudinaryConfigured = (): boolean => {
-  return !!(CLOUDINARY_CLOUD_NAME && CLOUDINARY_API_KEY && CLOUDINARY_API_SECRET);
+  return !!(
+    process.env.CLOUDINARY_CLOUD_NAME &&
+    process.env.CLOUDINARY_API_KEY &&
+    process.env.CLOUDINARY_API_SECRET
+  );
 };
 
 /**

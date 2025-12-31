@@ -4,6 +4,7 @@ export interface ILetter extends Document {
   content: string;
   unlockDate: Date;
   isOpened: boolean;
+  sender: 'nthz' | 'hna';
   createdAt: Date;
   updatedAt: Date;
 }
@@ -23,6 +24,11 @@ const LetterSchema = new Schema<ILetter>(
     isOpened: {
       type: Boolean,
       default: false,
+    },
+    sender: {
+      type: String,
+      enum: ['nthz', 'hna'],
+      default: 'nthz',
     },
   },
   {

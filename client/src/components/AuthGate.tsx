@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef, FormEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { generateToken, storeToken, hasValidSession } from '../utils/auth';
+import { storeToken, hasValidSession } from '../utils/auth';
+
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
 interface AuthGateProps {
   onSuccess: () => void;
 }
-
-const ANNIVERSARY_DATE = '14022020'; // DD MM YYYY format
 
 const AuthGate = ({ onSuccess }: AuthGateProps) => {
   const [dateInput, setDateInput] = useState('');
@@ -44,22 +44,35 @@ const AuthGate = ({ onSuccess }: AuthGateProps) => {
 
     setIsLoading(true);
 
-    // Simulate validation delay for smooth UX
-    await new Promise(resolve => setTimeout(resolve, 800));
+    try {
+      // Call the server API to verify passcode
+      const response = await fetch(`${API_URL}/api/auth/verify`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ passcode: dateInput }),
+      });
 
-    if (dateInput === ANNIVERSARY_DATE) {
-      // Success!
-      setIsSuccess(true);
-      const token = generateToken();
-      storeToken(token, rememberMe);
+      const data = await response.json();
 
-      // Wait for animation to complete before navigating
-      setTimeout(() => {
-        onSuccess();
-      }, 2000);
-    } else {
+      if (response.ok && data.success && data.token) {
+        // Success! Store the JWT token from server
+        setIsSuccess(true);
+        storeToken(data.token, rememberMe);
+
+        // Wait for animation to complete before navigating
+        setTimeout(() => {
+          onSuccess();
+        }, 2000);
+      } else {
+        setIsLoading(false);
+        setError(data.message || "That's not quite right... Try our special date ❤️");
+      }
+    } catch (err) {
+      console.error('Auth error:', err);
       setIsLoading(false);
-      setError('That\'s not quite right... Try our special date ❤️');
+      setError('Connection error. Please try again.');
     }
   };
 
@@ -226,10 +239,7 @@ const AuthGate = ({ onSuccess }: AuthGateProps) => {
                 >
                   {isLoading ? (
                     <span className="flex items-center justify-center">
-                      <svg
-                        className="animate-spin h-5 w-5 mr-3"
-                        viewBox="0 0 24 24"
-                      >
+                      <svg className="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24">
                         <circle
                           className="opacity-25"
                           cx="12"

@@ -6,6 +6,9 @@ export interface IMemory extends Document {
   date: Date;
   photos: string[];
   story?: string;
+  tags: string[];
+  location?: string;
+  sender: 'nthz' | 'hna';
   createdAt: Date;
   updatedAt: Date;
 }
@@ -33,6 +36,19 @@ const MemorySchema = new Schema<IMemory>(
     story: {
       type: String,
       trim: true,
+    },
+    tags: {
+      type: [String],
+      default: [],
+    },
+    location: {
+      type: String,
+      trim: true,
+    },
+    sender: {
+      type: String,
+      enum: ['nthz', 'hna'],
+      default: 'nthz',
     },
   },
   {

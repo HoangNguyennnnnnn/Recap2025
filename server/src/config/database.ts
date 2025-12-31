@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 
-const MONGODB_URI = process.env.MONGODB_URI || '';
 const MAX_RETRIES = 5;
 const RETRY_DELAY = 5000; // 5 seconds
 
@@ -8,6 +7,7 @@ const RETRY_DELAY = 5000; // 5 seconds
  * Connect to MongoDB with retry logic
  */
 export const connectDatabase = async (): Promise<void> => {
+  const MONGODB_URI = process.env.MONGODB_URI || '';
   let retries = 0;
 
   const connect = async (): Promise<void> => {

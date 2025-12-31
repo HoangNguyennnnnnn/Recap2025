@@ -1,148 +1,92 @@
-# Love Universe 2025 - Setup Guide
+# Love Universe 2025 - The Digital Memoryscape
 
-## Project Structure
+A romantic Progressive Web App (PWA) designed to curate memories, time-gated letters, and geospatial voice notes in a beautiful, shared digital universe.
 
-This is a monorepo containing:
-- **client/** - Frontend Vite + React + TypeScript application
-- **server/** - Backend Node.js + Express + TypeScript API
+## ✨ Features
 
-## Quick Start
+- **Memory Vault**: A rich media gallery for documenting milestones with photos, stories, and tags.
+- **Echoes of Love (Voice Map)**: An interactive 3D Earth where voice messages are pinned to locations.
+- **Secret Vault**: Time-capsule letters that remain locked until a specific future date.
+- **Real-time Presence**: See when your partner is online ("Hna is here ❤️").
+- **PWA Ready**: Installable on iOS and Android for a native app-like experience.
+- **Visuals**: stunning "Deep Blue" & "Stardust Gold" aesthetic with smooth Framer Motion animations.
 
-### 1. Install Dependencies
+## 🚀 Quick Start (Local Development)
 
-**Client:**
+### 1. Prerequisites
+- Node.js (v18+)
+- MongoDB (Local or Atlas URI)
+- Cloudinary Account (for media storage)
+
+### 2. Installation
+
+ Clone the repository:
+   ```bash
+   git clone https://github.com/HoangNguyennnnnnn/Recap2025.git
+   cd Recap2025
+   ```
+
+ Install dependencies for both Client and Server:
+   ```bash
+   # Root/Client
+   cd client
+   npm install
+
+   # Server
+   cd ../server
+   npm install
+   ```
+
+### 3. Configuration
+Duplicate `.env.example` in both folders and fill in your credentials.
+
+**Server (`server/.env`):**
+```env
+PORT=3000
+MONGODB_URI=mongodb+srv://...
+CLOUDINARY_CLOUD_NAME=...
+CLOUDINARY_API_KEY=...
+CLOUDINARY_API_SECRET=...
+JWT_SECRET=your_secret_key
+ALLOWED_ORIGINS=http://localhost:5173
+```
+
+**Client (`client/.env`):**
+```env
+VITE_API_URL=http://localhost:3000
+```
+
+### 4. Seeding Data (Optional)
+Populate the database with sample memories, letters, and voice notes:
+```bash
+cd server
+npm run seed
+```
+
+### 5. Running the App
+Start both servers in separate terminals:
+
+**Backend:**
+```bash
+cd server
+npm run dev
+```
+
+**Frontend:**
 ```bash
 cd client
-npm install
-```
-
-**Server:**
-```bash
-cd server
-npm install
-```
-
-### 2. Configure Environment Variables
-
-**Server:**
-```bash
-cd server
-cp .env.example .env
-```
-
-Edit `.env` and add your configuration values (MongoDB URI, Cloudinary credentials, etc.)
-
-### 3. Run Development Servers
-
-**Client (from client/ directory):**
-```bash
 npm run dev
 ```
-The client will run on `http://localhost:5173`
 
-**Server (from server/ directory):**
-```bash
-npm run dev
-```
-The server will run on `http://localhost:3000`
+Visit `http://localhost:5173` to explore the universe!
 
-## Project Features
+## 🛠️ Tech Stack
 
-### Custom Tailwind Theme
+- **Frontend**: React 18, TypeScript, Vite, Framer Motion, Tailwind CSS, Mapbox/React-GL (or similar for 3D Earth).
+- **Backend**: Node.js, Express, Socket.io (Real-time), MongoDB (Mongoose).
+- **Mobile**: Vite PWA Plugin (Installable).
+- **Media**: Cloudinary utilization.
 
-The project includes a custom Tailwind configuration with romantic theme colors:
+## 📖 Deployment
 
-- **Deep Blue** (`deep-blue`): `#1a1a2e` - Primary background color
-- **Stardust Gold** (`stardust-gold`): `#ffd700` - Accent and highlight color
-- **Soft Pink** (`soft-pink`): `#ffb6c1` - Romantic elements
-
-Usage example:
-```tsx
-<div className="bg-deep-blue text-stardust-gold">
-  <h1 className="text-soft-pink">Hello</h1>
-</div>
-```
-
-### Google Fonts
-
-Two fonts are integrated:
-- **Dancing Script** (`font-dancing`) - For romantic headings
-- **Inter** (`font-inter`) - For body text
-
-Usage example:
-```tsx
-<h1 className="font-dancing text-6xl">Love Universe</h1>
-<p className="font-inter">Beautiful typography</p>
-```
-
-### TypeScript Strict Mode
-
-Both client and server have strict TypeScript mode enabled with path aliases:
-
-**Client aliases:**
-- `@/` → `./src/`
-- `@/components/*` → `./src/components/*`
-- `@/utils/*` → `./src/utils/*`
-- `@/hooks/*` → `./src/hooks/*`
-- `@/types/*` → `./src/types/*`
-
-**Server aliases:**
-- `@/` → `./src/`
-- `@/models/*` → `./src/models/*`
-- `@/routes/*` → `./src/routes/*`
-- `@/controllers/*` → `./src/controllers/*`
-- `@/middleware/*` → `./src/middleware/*`
-- `@/utils/*` → `./src/utils/*`
-
-## Available Scripts
-
-### Client Scripts
-
-- `npm run dev` - Start development server with hot reload
-- `npm run build` - Build for production (TypeScript compilation + Vite build)
-- `npm run preview` - Preview production build locally
-- `npm run lint` - Run ESLint for code quality checks
-
-### Server Scripts
-
-- `npm run dev` - Start development server with auto-restart (tsx watch)
-- `npm run build` - Compile TypeScript to JavaScript
-- `npm run start` - Run compiled production server
-- `npm run lint` - Run ESLint for code quality checks
-
-## Code Quality Tools
-
-- **ESLint** - Configured for both client and server with TypeScript support
-- **Prettier** - Consistent code formatting across the project
-- **EditorConfig** - Cross-editor consistency for indentation and line endings
-
-## Tech Stack
-
-### Frontend (client/)
-- ⚡ Vite - Fast build tool and dev server
-- ⚛️ React 18 - UI library
-- 📘 TypeScript - Type safety
-- 🎨 Tailwind CSS - Utility-first CSS framework
-- ✅ ESLint + Prettier - Code quality and formatting
-
-### Backend (server/)
-- 🟢 Node.js - Runtime environment
-- 🚂 Express - Web framework
-- 📘 TypeScript - Type safety
-- 🔄 tsx - TypeScript execution with watch mode
-- ✅ ESLint + Prettier - Code quality and formatting
-
-## Next Steps
-
-After installing dependencies, you can:
-1. Start both development servers
-2. Open `http://localhost:5173` to see the client
-3. Test the server health endpoint at `http://localhost:3000/api/health`
-4. Begin building your features!
-
-## Notes
-
-- All configuration files are properly set up
-- TypeScript strict mode is enabled for maximum type safety
-- Path aliases are configured in both TypeScript and Vite configs
-- The project follows best practices for modern full-stack development
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions on deploying to **Render** (Backend) and **Vercel** (Frontend).

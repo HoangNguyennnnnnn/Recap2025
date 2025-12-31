@@ -30,7 +30,4 @@ const UserSchema = new Schema<IUser>(
   }
 );
 
-// Index for fast authentication lookups
-UserSchema.index({ sessionToken: 1 });
-
 export const User = mongoose.model<IUser>('User', UserSchema);
