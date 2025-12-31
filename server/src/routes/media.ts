@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express';
 import multer from 'multer';
 import { cloudinary, isCloudinaryConfigured } from '../config/cloudinary.js';
-import { PhotoMetadata, HnaGallery, SecretMedia } from '../models/index.js';
+import { HnaGallery, SecretMedia, PhotoMetadata } from '../models/index.js';
 import { authMiddleware } from '../middleware/auth.js';
 import {
   getVideoStreamingUrl,
@@ -166,7 +166,7 @@ router.get('/photos', async (req: Request, res: Response) => {
 
     const photos = result.resources.map((photo: any) => {
       const responsiveSizes = getPhotoResponsiveSizes(photo.public_id);
-      const metadata = metadataList.find((m) => m.publicId === photo.public_id);
+      const metadata = metadataList.find((m: any) => m.publicId === photo.public_id);
 
       return {
         publicId: photo.public_id,
@@ -251,7 +251,7 @@ router.get('/photos/:album', async (req: Request, res: Response) => {
       // Transform photo data with responsive URLs and metadata
       const photos = result.resources.map((photo: any) => {
         const responsiveSizes = getPhotoResponsiveSizes(photo.public_id);
-        const metadata = metadataList.find((m) => m.publicId === photo.public_id);
+        const metadata = metadataList.find((m: any) => m.publicId === photo.public_id);
 
         return {
           publicId: photo.public_id,

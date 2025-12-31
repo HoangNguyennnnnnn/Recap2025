@@ -14,3 +14,7 @@ export { Letter } from './Letter.js';
 export type { ILetter } from './Letter.js';
 export * from './HnaGallery.js';
 export * from './SecretMedia.js';
+export { VoiceNote } from './VoiceNote.js';
+export type { IVoiceNote } from './VoiceNote.js';
+export { PhotoMetadata } from './PhotoMetadata.js';
+export type { IPhotoMetadata } from './PhotoMetadata.js';
