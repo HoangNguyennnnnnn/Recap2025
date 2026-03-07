@@ -17,6 +17,7 @@ import BirthdayPage from './components/features/birthday/BirthdayPage';
 import OpenWhenPage from './components/features/openwhen/OpenWhenPage';
 import SecretRoom from './components/features/biometric/SecretRoom';
 import HnaGallery from './components/features/hna/HnaGallery';
+import WomensDayPage from './components/features/womensday/WomensDayPage';
 
 // Page transition variants
 const pageVariants = {
@@ -250,6 +251,20 @@ function App() {
                   transition={pageTransition}
                 >
                   <SecretRoom />
+                </motion.div>
+              }
+            />
+            <Route
+              path="/womens-day"
+              element={
+                <motion.div
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  variants={pageVariants}
+                  transition={pageTransition}
+                >
+                  <WomensDayPage />
                 </motion.div>
               }
             />
