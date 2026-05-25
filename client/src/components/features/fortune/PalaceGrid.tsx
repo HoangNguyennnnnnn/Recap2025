@@ -49,7 +49,7 @@ const PalaceGrid = ({ result, displayName, birthDate, birthTime, gender }: Palac
 
   const gridPalaces = useMemo(() => {
     if (!result?.palaces) return [];
-    const positioned = new Array(12).fill(null);
+    const positioned: (FortunePalace | null)[] = new Array(12).fill(null);
     const palacesCopy = [...result.palaces];
 
     palacesCopy.forEach((palace, idx) => {

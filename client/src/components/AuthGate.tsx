@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, FormEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { storeToken, hasValidSession } from '../utils/auth';
+import { storeToken } from '../utils/auth';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
