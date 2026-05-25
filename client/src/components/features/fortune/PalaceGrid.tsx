@@ -72,7 +72,7 @@ const PalaceGrid = ({ result, displayName, birthDate, birthTime, gender }: Palac
       }
     });
 
-    return positioned;
+    return positioned.filter(Boolean) as FortunePalace[];
   }, [result]);
 
   const palaceScores = useMemo(() => {

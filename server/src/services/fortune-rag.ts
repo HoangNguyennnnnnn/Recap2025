@@ -1,4 +1,5 @@
 import { GoogleGenAI } from '@google/genai';
+// @ts-ignore - pdf-parse has no type declarations
 import pdf from 'pdf-parse';
 
 const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-2.0-flash';

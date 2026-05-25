@@ -13,7 +13,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
-import { FortuneProfile, FortuneChunk, FortuneReading } from '../models/index.js';
+import { FortuneProfile, FortuneChunk } from '../models/index.js';
 
 const MONGO_URI = process.env.MONGODB_URI || process.env.MONGO_URI || '';
 
