@@ -13,7 +13,10 @@ export default {
             },
             fontFamily: {
                 'dancing': ['"Dancing Script"', 'cursive'],
-                'inter': ['Inter', 'sans-serif'],
+                'inter': ['Inter', '"Noto Sans"', 'sans-serif'],
+                'playfair': ['"Playfair Display"', '"Noto Serif"', 'serif'],
+                'lora': ['Lora', '"Noto Serif"', 'serif'],
+                'serif': ['"Noto Serif"', 'Georgia', 'serif'],
             },
         },
     },

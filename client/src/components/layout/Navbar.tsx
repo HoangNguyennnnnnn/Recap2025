@@ -10,6 +10,7 @@ interface NavItem {
 const NAV_ITEMS: NavItem[] = [
   { label: 'Home', path: '/', icon: '🏠' },
   { label: 'Vault', path: '/vault', icon: '💌' },
+  { label: 'Horoscope', path: '/fortune', icon: '🔮' },
   { label: 'Hna', path: '/hna-gallery', icon: '💖' },
   { label: 'Thanks', path: '/thanks', icon: '✨' },
   { label: 'Timeline', path: '/stats', icon: '🪐' },

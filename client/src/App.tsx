@@ -18,6 +18,8 @@ import OpenWhenPage from './components/features/openwhen/OpenWhenPage';
 import SecretRoom from './components/features/biometric/SecretRoom';
 import HnaGallery from './components/features/hna/HnaGallery';
 import WomensDayPage from './components/features/womensday/WomensDayPage';
+import FortunePage from './components/features/fortune/FortunePage';
+import FortuneAnalysisPage from './components/features/fortune/FortuneAnalysisPage';
 
 // Page transition variants
 const pageVariants = {
@@ -265,6 +267,34 @@ function App() {
                   transition={pageTransition}
                 >
                   <WomensDayPage />
+                </motion.div>
+              }
+            />
+            <Route
+              path="/fortune"
+              element={
+                <motion.div
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  variants={pageVariants}
+                  transition={pageTransition}
+                >
+                  <FortunePage />
+                </motion.div>
+              }
+            />
+            <Route
+              path="/fortune/:profileSlug"
+              element={
+                <motion.div
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  variants={pageVariants}
+                  transition={pageTransition}
+                >
+                  <FortuneAnalysisPage />
                 </motion.div>
               }
             />

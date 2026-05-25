@@ -18,6 +18,7 @@ import mediaRouter from './routes/media.js';
 import authRouter from './routes/auth.js';
 import memoryRouter from './routes/memories.js';
 import lettersRouter from './routes/letters.js';
+import fortuneRouter from './routes/fortune.js';
 
 import { initializeSocket } from './socket/index.js';
 
@@ -30,17 +31,15 @@ const allowedOrigins = process.env.ALLOWED_ORIGINS
   ? process.env.ALLOWED_ORIGINS.split(',').map((origin) => origin.trim())
   : [];
 
-// Always allow localhost in development
-if (process.env.NODE_ENV !== 'production') {
-  allowedOrigins.push('http://localhost:5173', 'http://localhost:3000');
-}
-
 const corsOptions = {
   origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {
     // Allow requests with no origin (like mobile apps, Postman, curl)
     if (!origin) return callback(null, true);
-
-    if (allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV !== 'production') {
+    // Allow any localhost origin in development
+    if (process.env.NODE_ENV !== 'production' && /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)) {
+      return callback(null, true);
+    }
+    if (allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
     } else {
       callback(new Error(`Origin ${origin} not allowed by CORS`));
@@ -86,6 +85,8 @@ app.use('/api/memories', memoryRouter);
 // Secret Vault (Letters) routes
 app.use('/api/letters', lettersRouter);
 
+// Fortune AI routes
+app.use('/api/fortune', fortuneRouter);
 
 // Database initialization and server startup
 const startServer = async () => {

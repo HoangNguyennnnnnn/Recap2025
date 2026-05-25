@@ -16,15 +16,9 @@ const AuthGate = ({ onSuccess }: AuthGateProps) => {
   const [rememberMe, setRememberMe] = useState(true);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Auto-skip if valid session exists
   useEffect(() => {
-    if (hasValidSession()) {
-      onSuccess();
-    } else {
-      // Autofocus on input
-      inputRef.current?.focus();
-    }
-  }, [onSuccess]);
+    inputRef.current?.focus();
+  }, []);
 
   const validateDate = (input: string): boolean => {
     // Check if input matches DDMMYYYY format (8 digits)
