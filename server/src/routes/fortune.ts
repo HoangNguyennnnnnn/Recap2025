@@ -232,9 +232,6 @@ router.post('/ingest', authMiddleware, async (req: Request, res: Response) => {
 //   - Có question → RAG trên fullText để trả lời câu hỏi cụ thể
 router.post('/generate', authMiddleware, async (req: Request, res: Response) => {
   try {
-    if (!geminiReady())
-      return res.status(503).json({ error: 'GEMINI_API_KEY not configured' });
-
     const { profileSlug, birthDate, birthTime, gender, question } = req.body as {
       profileSlug?: string;
       birthDate?: string;
@@ -255,7 +252,7 @@ router.post('/generate', authMiddleware, async (req: Request, res: Response) => 
     const finalBirthTime = birthTime || profile.birthTime;
     const finalGender = gender || profile.gender;
 
-    // ── Case 1: No question → serve cached parsedResult or fall back to RAG ─────
+    // ── Case 1: No question → serve cached parsedResult ─────
     if (!question?.trim()) {
       if (profile.parsedResult) {
         console.log(`✅ Serving cached parsedResult for ${slug}`);
@@ -269,10 +266,15 @@ router.post('/generate', authMiddleware, async (req: Request, res: Response) => 
         await profile.save();
         return res.json({ success: true, result: lastReading.result });
       }
+      // No cached data at all — can't proceed without Gemini
+      if (!geminiReady())
+        return res.status(503).json({ error: 'GEMINI_API_KEY not configured' });
       console.log(`⚠️  No parsedResult for ${slug}, falling back to RAG generation`);
     }
 
     // ── Case 2: Has question (or no parsedResult) → RAG on stored chunks ─────
+    if (!geminiReady())
+      return res.status(503).json({ error: 'GEMINI_API_KEY not configured' });
     const chunks = await FortuneChunk.find({ profileSlug: slug }).lean();
 
     let context: string;

@@ -29,11 +29,11 @@ const parsedResult = {
     { title: 'Phu Thê', score: 65, summary: 'KHÁ TỐT (65/100) — Thiên Phủ, Long Đức, Lực Sĩ, Đế Vượng, Kình Dương.' },
     { title: 'Phụ Mẫu', score: 52, summary: 'BÌNH HÒA (52/100) — Cự Môn, Văn Khúc, Tướng Quân, Thiên Diêu, Điếu Khách, Thiên Y, Tử, Tuần.' },
     { title: 'Huynh Đệ', score: 64, summary: 'KHÁ TỐT (64/100) — Thanh Long, Hoa Cái, Thiên Quý, Phong Cáo, Suy, Hỏa Tinh.' },
-    { title: 'Tử Tức', score: 69, summary: 'KHÁ TỐT (69/100) — Thái Âm, Hỏa Tinh, Thiên La, Thanh Long, Hoa Cái, Phong Cáo, Thiên Quý.' },
-    { title: 'Tật Ách', score: 50, summary: 'BÌNH HÒA (50/100) — Thiên Cơ, Long Trì, Địa Giải, Tam Thai.' },
-    { title: 'Điền Trạch', score: 49, summary: 'HƠI XẤU (49/100) — Thái Dương, Ân Quang, Quốc Ấn, Tang Môn, Bệnh Phù, Địa Võng, Hóa Kỵ.' },
-    { title: 'Nô Bộc', score: 46, summary: 'HƠI XẤU (46/100) — Tử Vi, Phá Quân, Thiên Tài, Nguyệt Đức, Thiên Hỷ, Thiên Khôi, Đà La, Địa Kiếp.' },
-    { title: 'Phúc Đức', score: 85, summary: 'CỰC TỐT (85/100) — Thiên Đồng Miếu địa, Thiên Lương Vượng địa, Văn Xương, Thai Phụ, Linh Tinh.' },
+    { title: 'Tử Tức', score: 69, summary: 'KHÁ TỐT (69/100) — Lộc Tồn, Phượng Các, Thiên Mã, Thiên Hình, Giải Thần, Thiên Hư, Bác Sĩ, Tuế Phá.' },
+    { title: 'Tật Ách', score: 50, summary: 'BÌNH HÒA (50/100) — Thiên Cơ, Long Trì, Địa Giải, Tam Thai, Quan Phù, Phục Binh.' },
+    { title: 'Điền Trạch', score: 49, summary: 'HƠI XẤU (49/100) — Thiên Đồng, Thiên Lương, Văn Xương, Thai Phụ, Linh Tinh, Tuyệt.' },
+    { title: 'Nô Bộc', score: 46, summary: 'HƠI XẤU (46/100) — Thái Dương Hãm, Quốc Ấn, Ân Quang, Tang Môn, Bệnh Phù, Địa Võng, Hóa Kỵ.' },
+    { title: 'Phúc Đức', score: 85, summary: 'RẤT TỐT (85/100) — Thiên Tướng, Đường Phù, Tấu Thư, Hồng Loan, Thiên Việt, Thiên Quan.' },
     { title: 'Thiên Di', score: 60, summary: 'KHÁ TỐT (60/100) — Thiếu Âm, Cô Thần, Đại Hao.' },
   ],
   elements: [
@@ -49,18 +49,18 @@ const parsedResult = {
     { label: 'Sau trung niên', status: 'Phát đạt, làm chơi ăn thật', score: 85 },
   ],
   palaces: [
-    { name: 'Tử Tức', location: 'Dần', stars: ['Thái Âm (H)', 'Hỏa Tinh (Đ)', 'Thiên La', 'Thanh Long', 'Hoa Cái', 'Phong Cáo', 'Thiên Quý', 'Lộc Tồn', 'Tuế Phá', 'Bác Sĩ', 'Thiên Hư (H)', 'Thiên Mã (Đ)', 'Thiên Hình (Đ)', 'Phượng Các', 'Giải Thần', 'Bát Tọa'], interpretation: 'Cung Tử Tức KHÁ TỐT (69/100). Thái Âm: có con gái, nuôi dạy con tốt. Hỏa Tinh: con cường tráng, năng động. Thanh Long + Phượng Các: con thông minh, học giỏi, thành đạt.' },
-    { name: 'Phu Thê', location: 'Mão', stars: ['Thiên Phủ (B)', 'Kình Dương (H)', 'Long Đức', 'Lực Sĩ', 'Đế Vượng'], interpretation: 'Cung Phu Thê KHÁ TỐT (65/100). Thiên Phủ: vợ giỏi giang, nhanh nhẹn, gia đình vợ có điều kiện. Long Đức: vợ hiền hậu, đức độ, sống tình nghĩa. Kình Dương Hãm: nên kết hôn muộn, chú ý bạo lực gia đình.' },
-    { name: 'Huynh Đệ', location: 'Thìn', stars: ['Cự Môn (V)', 'Thiên Y', 'Văn Khúc (H)', 'Thiên Diêu (H)', 'Điếu Khách', 'Tướng Quân'], interpretation: 'Cung Huynh Đệ KHÁ TỐT (64/100). Thanh Long: anh chị em hòa thuận, nhân hậu, có học thức. Hoa Cái: chăm chỉ, quý mến nhau. Suy + Hỏa Tinh: đông anh chị em, cuộc sống thuận lợi.' },
-    { name: 'Mệnh', location: 'Tỵ', stars: ['Liêm Trinh (H)', 'Tham Lang (H)', 'Phúc Đức', 'Thiên Đức', 'LN Văn Tinh', 'Hữu Bật', 'Thiên Trù', 'Thiên Thọ', 'Hóa Lộc (Đ)', 'Tiểu Hao', 'Kiếp Sát', 'Đẩu Quân'], interpretation: 'Cung Mệnh TỐT (73/100). Liêm Trinh Hóa Lộc: hào sảng, phóng khoáng, giỏi kiếm tiền. Phúc Đức + Thiên Đức: nhân hậu, thích làm việc thiện. Hữu Bật: nhanh nhẹn, tài trí, được quý nhân giúp đỡ. Tham Lang Hãm: thích một mình, nhiều dục vọng, cẩn trọng gay ghen.' },
-    { name: 'Phụ Mẫu', location: 'Ngọ', stars: ['Thiên Đồng (M)', 'Thiên Lương (V)', 'Văn Xương (Đ)', 'Thai Phụ', 'Linh Tinh (H)', 'Thái Tuế', 'Phi Liêm'], interpretation: 'Cung Phụ Mẫu BÌNH HÒA (52/100). Cự Môn: cha mẹ ốm đau bệnh tật, quan điểm khác nhau, khoảng cách thế hệ lớn. Văn Khúc: cha mẹ khéo léo, tài năng. Điếu Khách: bố mẹ phóng khoáng, thích du lịch. Tử + Tuần: cha mẹ hay mắc bệnh, sức khỏe không tốt.' },
-    { name: 'Phúc Đức', location: 'Mùi', stars: ['Vũ Khúc (Đ)', 'Thất Sát (H)', 'Thiếu Dương', 'Hỷ Thần', 'Đào Hoa', 'Tả Phù', 'Thiên Phúc', 'Hóa Khoa'], interpretation: 'Cung Phúc Đức CỰC TỐT (85/100). Thiên Đồng Miếu địa + Thiên Lương Vượng địa: phúc đức tổ tiên dồi dào, hưởng phúc từ dòng họ. Văn Xương Đắc địa: dòng họ có truyền thống khoa bảng. Thai Phụ: tổ tiên ban phúc, dòng dõi quý phái.' },
-    { name: 'Điền Trạch', location: 'Thân', stars: ['Thái Dương (H)', 'Ân Quang', 'Quốc Ấn', 'Tang Môn (H)', 'Bệnh Phù', 'Địa Võng', 'Thiên Thương', 'Hóa Kỵ (Đ)'], interpretation: 'Cung Điền Trạch HƠI XẤU (49/100). Thái Dương Hãm + Hóa Kỵ: nhà cửa hay trục trặc, đầu tư đất đai không thuận. Tang Môn + Bệnh Phù: nhà phong thủy không tốt, hay đau ốm khi ở trong nhà. Địa Võng: khó tạo dựng cơ đồ từ đất đai.' },
-    { name: 'Quan Lộc', location: 'Dậu', stars: ['Thiên Cơ (Đ)', 'Long Trì', 'Địa Giải', 'Tam Thai', 'Thiên Không'], interpretation: 'Cung Quan Lộc KHÁ TỐT (67/100). Vũ Khúc + Thất Sát: ngành tài chính, ngân hàng, kinh doanh hoặc võ nghiệp. Thiếu Dương: tài đức vẹn toàn, tiếng tăm lẫy lừng. Hóa Khoa: thi cử đỗ đạt, nhiều bằng cấp, dễ thành chuyên gia. Đào Hoa + Tả Phù: môi trường làm việc nhiều người khác giới.' },
-    { name: 'Nô Bộc', location: 'Tuất', stars: ['Thiên Cơ (Đ)', 'Long Trì', 'Địa Giải', 'Tam Thai'], interpretation: 'Cung Nô Bộc HƠI XẤU (46/100). Tử Vi + Phá Quân + Đà La + Địa Kiếp (H): bạn bè ít, dễ bị phản bội. Nguyệt Đức + Thiên Khôi: nhờ bạn bè mà có tiền tài. Thiên Hỷ: giao thiệp vui vẻ. Địa Kiếp: cẩn trọng bị lừa mất tiền vì bạn.' },
-    { name: 'Thiên Di', location: 'Hợi', stars: ['Tử Vi (Đ)', 'Phá Quân (V)', 'Nguyệt Đức', 'Thiên Hỷ', 'Thiên Khôi', 'Thiên Tài', 'Đà La (Đ)', 'Địa Kiếp (H)', 'Hóa Quyền (Đ)'], interpretation: 'Cung Thiên Di KHÁ TỐT (60/100). Thiếu Âm: khi ra ngoài được nhiều người yêu quý. Cô Thần: thích đi một mình, khó hòa nhập đám đông. Đại Hao: cẩn trọng hao tài khi đi xa.' },
-    { name: 'Tật Ách', location: 'Tý', stars: ['Thái Âm (H)', 'Hỏa Tinh (Đ)', 'Thiên La', 'Thanh Long', 'Hoa Cái', 'Phong Cáo', 'Thiên Quý'], interpretation: 'Cung Tật Ách BÌNH HÒA (50/100). Thiên Cơ Đắc: hay lo nghĩ nhiều, căng thẳng thần kinh. Long Trì: sức khỏe sinh lý tốt nhưng cẩn trọng tai nạn dưới nước. Địa Giải: giải trừ bệnh tật. Tam Thai: ít đau ốm nặng.' },
-    { name: 'Tài Bạch', location: 'Sửu', stars: ['Tử Vi (Đ)', 'Phá Quân (V)', 'Nguyệt Đức', 'Thiên Hỷ', 'Thiên Khôi', 'Thiên Tài', 'Đà La (Đ)', 'Địa Kiếp (H)', 'Hóa Quyền (Đ)'], interpretation: 'Cung Tài Bạch KHÁ TỐT (69/100). Tử Vi: nguồn tiền tài sung túc. Phá Quân + Hóa Quyền: có thể có tiền bất ngờ, năng lực vận dụng tiền tốt. Đà La: kiếm tiền nhanh, không ngại dùng mưu mẹo. Địa Kiếp Hãm: cẩn trọng phá tán, hao tài khi gặp hạn.' },
+    { name: 'Mệnh', location: 'Dần', stars: ['Liêm Trinh (H)', 'Tham Lang (H)', 'Phúc Đức', 'Thiên Đức', 'LN Văn Tinh', 'Hữu Bật', 'Thiên Trù', 'Thiên Thọ', 'Hóa Lộc (Đ)', 'Tiểu Hao', 'Đẩu Quân', 'Kiếp Sát', 'Lộc Tồn (L)'], interpretation: 'Cung Mệnh TỐT (73/100). Liêm Trinh Hóa Lộc: hào sảng, phóng khoáng, giỏi kiếm tiền. Phúc Đức + Thiên Đức: nhân hậu, thích làm việc thiện. Hữu Bật: nhanh nhẹn, tài trí, được quý nhân giúp đỡ. Hóa Lộc: duyên dáng, khéo léo, sành ăn uống. LN Văn Tinh: năng khiếu văn chương, âm nhạc. Tham Lang Hãm: thích một mình, nhiều dục vọng, cẩn trọng ghen tuông.' },
+    { name: 'Phụ Mẫu', location: 'Mão', stars: ['Cự Môn (V)', 'Thiên Y', 'Điếu Khách', 'Văn Khúc (H)', 'Tướng Quân', 'Thiên Diêu (H)'], interpretation: 'Cung Phụ Mẫu BÌNH HÒA (52/100). Cự Môn: ám tinh, cha mẹ ốm đau bệnh tật, quan điểm khác nhau, khoảng cách thế hệ lớn. Văn Khúc: cha mẹ khéo léo, tài năng, học vấn cao. Tướng Quân: cha mẹ có danh tiếng. Điếu Khách: bố mẹ phóng khoáng, thích du lịch. Thiên Y: cha mẹ dễ đau ốm, phải dùng thuốc nhiều.' },
+    { name: 'Phúc Đức', location: 'Thìn', stars: ['Thiên Tướng (Đ)', 'Tấu Thư', 'Trực Phù', 'Đường Phù', 'Quả Tú', 'Hồng Loan', 'Thiên Việt', 'Thiên Quan'], interpretation: 'Cung Phúc Đức RẤT TỐT (85/100). Thiên Tướng: phúc thọ vẹn toàn, họ hàng giàu sang. Đường Phù: hưởng phúc tổ tiên, mồ mả khang trang. Tấu Thư: dòng họ nhiều người học thức cao, truyền thống khoa bảng. Hồng Loan: họ hàng sống tình cảm, có quý nhân khác giới giúp đỡ. Thiên Việt: nhiều quý nhân phù hộ, tổ tiên có người xuất chúng.' },
+    { name: 'Điền Trạch', location: 'Tỵ', stars: ['Thiên Đồng (M)', 'Thiên Lương (V)', 'Văn Xương (Đ)', 'Thái Tuế', 'Thai Phụ', 'Phi Liêm', 'Linh Tinh (H)', 'Tuyệt'], interpretation: 'Cung Điền Trạch HƠI XẤU (49/100). Thiên Đồng + Thiên Lương: không được hưởng nhà đất từ đời trước, phải tự thân kiếm tiền mua nhà. Văn Xương: nhà cửa đẹp, gần trường học. Thai Phụ: có điền sản, có thể được thừa hưởng của cải. Linh Tinh: tai họa về nhà cửa, đất tổ tiên không giữ được lâu.' },
+    { name: 'Quan Lộc', location: 'Ngọ', stars: ['Vũ Khúc (Đ)', 'Thất Sát (H)', 'Thiếu Dương', 'Hỷ Thần', 'Đào Hoa', 'Tả Phù', 'Hóa Khoa', 'Thiên Phúc', 'Thiên Không', 'Địa Không (H)', 'Phá Toái', 'Lưu Hà'], interpretation: 'Cung Quan Lộc KHÁ TỐT (67/100). Vũ Khúc + Thất Sát: ngành tài chính, ngân hàng, kinh doanh hoặc võ nghiệp. Thiếu Dương: tài đức vẹn toàn, tiếng tăm lẫy lừng. Hóa Khoa: thi cử đỗ đạt, nhiều bằng cấp, dễ thành chuyên gia. Đào Hoa + Tả Phù: môi trường làm việc nhiều người khác giới. Thiên Không + Địa Không: công danh có thể dang dở, dễ bị biến cố.' },
+    { name: 'Nô Bộc', location: 'Mùi', stars: ['Thái Dương (H)', 'Quốc Ấn', 'Tang Môn (H)', 'Ân Quang', 'Bệnh Phù', 'Thiên Khốc', 'Địa Võng', 'Thiên Thương', 'Hóa Kỵ (Đ)'], interpretation: 'Cung Nô Bộc HƠI XẤU (46/100). Thái Dương Hãm + Hóa Kỵ: dễ bị bạn bè oán trách, thị phi. Quốc Ấn: bạn bè thông minh, giỏi giang. Ân Quang: có bạn phụ tá trung hậu, đáng tin cậy. Tang Môn: cả đời lo lắng cho bạn bè. Bệnh Phù: ít bạn bè, ít giao lưu. Địa Võng: bạn bè tốt bụng nhưng hay gây phiền toái.' },
+    { name: 'Thiên Di', location: 'Thân', stars: ['Thiếu Âm', 'Đại Hao', 'Cô Thần'], interpretation: 'Cung Thiên Di KHÁ TỐT (60/100). Thiếu Âm: đi xa được nhiều người yêu quý, giúp đỡ. Vô chính diệu: khó giàu có lớn, dễ bị chi phối bởi môi trường xung quanh. Cô Thần: thích đi một mình, ít giao du, khó hòa nhập đám đông. Đại Hao: cẩn trọng hao tài khi đi xa, du lịch hoặc công tác.' },
+    { name: 'Tật Ách', location: 'Dậu', stars: ['Thiên Cơ (Đ)', 'Long Trì', 'Địa Giải', 'Tam Thai', 'Quan Phù', 'Phục Binh', 'Thiên Sứ'], interpretation: 'Cung Tật Ách BÌNH HÒA (50/100). Thiên Cơ Đắc: hay lo nghĩ nhiều, căng thẳng thần kinh, dễ mất ngủ. Long Trì: sức khỏe sinh lý tốt nhưng cẩn trọng tai nạn dưới nước. Địa Giải: giải trừ bệnh tật. Tam Thai: ít đau ốm nặng. Quan Phù: nguy cơ thị phi, kiện cáo. Phục Binh: họa mất cắp, cướp giật.' },
+    { name: 'Tài Bạch', location: 'Tuất', stars: ['Tử Vi (Đ)', 'Phá Quân (V)', 'Nguyệt Đức', 'Tử Phù', 'Thiên Hỷ', 'Đà La (Đ)', 'Thiên Giải', 'Quan Phủ', 'Thiên Khôi', 'Địa Kiếp (H)', 'Thiên Tài', 'Hóa Quyền (Đ)'], interpretation: 'Cung Tài Bạch KHÁ TỐT (69/100). Tử Vi: nguồn tiền tài sung túc, chủ về chức tước bổng lộc. Phá Quân + Hóa Quyền: có thể có tiền bất ngờ, năng lực vận dụng tiền tốt. Đà La: kiếm tiền nhanh, không ngại dùng mưu mẹo. Nguyệt Đức + Thiên Khôi: kiếm tiền chân chính, biết dùng tiền giúp người. Địa Kiếp Hãm: cẩn trọng phá tán, hao tài lớn khi gặp hạn.' },
+    { name: 'Phu Thê', location: 'Tý', stars: ['Thiên Phủ (B)', 'Long Đức', 'Kình Dương (H)', 'Lực Sĩ'], interpretation: 'Cung Phu Thê KHÁ TỐT (65/100). Thiên Phủ: vợ giỏi giang, nhanh nhẹn, gia đình vợ có điều kiện. Long Đức: vợ hiền hậu, đức độ, sống tình nghĩa, ít mâu thuẫn. Lực Sĩ: hôn phối to lớn, vạm vỡ, sức khỏe tốt. Kình Dương Hãm: nên kết hôn muộn, chú ý bạo lực gia đình.' },
+    { name: 'Huynh Đệ', location: 'Sửu', stars: ['Thái Âm (H)', 'Thanh Long', 'Bạch Hổ', 'Hoa Cái', 'Hỏa Tinh (Đ)', 'Phong Cáo', 'Thiên La', 'Thiên Quý'], interpretation: 'Cung Huynh Đệ KHÁ TỐT (64/100). Thanh Long: anh chị em hòa thuận, nhân hậu, có học thức. Hoa Cái: chăm chỉ, quý mến nhau. Phong Cáo: anh chị em tri thức, học vấn cao. Thiên Quý: anh em tình cảm tốt đẹp. Thái Âm Hãm: may lắm mới 3 người, có người mang cố tật. Hỏa Tinh: anh em xa cách.' },
+    { name: 'Tử Tức', location: 'Hợi', stars: ['Lộc Tồn', 'Tuế Phá', 'Bác Sĩ', 'Thiên Hư (H)', 'Thiên Mã (Đ)', 'Thiên Hình (Đ)', 'Phượng Các', 'Giải Thần', 'Bát Tọa', 'Quan Đới', 'Tuần', 'Triệt'], interpretation: 'Cung Tử Tức KHÁ TỐT (69/100). Lộc Tồn: con muộn, ít con nhưng ngoan ngoãn hiếu thảo. Phượng Các + Giải Thần: dễ sinh quý tử, con thông minh tuấn kiệt. Thiên Mã: con giỏi giang, đa tài, có tính độc lập cao. Thiên Hình: con giỏi giang thành đạt, có duyên với quân đội. Thiên Hư: con nhỏ hay bệnh, cẩn trọng nuôi dạy.' },
   ],
 };
 
@@ -88,7 +88,7 @@ Trong tình cảm, bạn khá có duyên, ôn hòa, phong thái hấp dẫn, cư
   },
   palaceMenh: `**Đánh giá: TỐT (73/100 điểm)**
 
-Cung Mệnh tọa tại Tỵ, có **Liêm Trinh Hãm địa** và **Tham Lang Hãm địa**.
+Cung Mệnh tọa tại Dần, có **Liêm Trinh Hãm địa** và **Tham Lang Hãm địa**.
 
 **Liêm Trinh + Hóa Lộc:** Bạn được hưởng sung sướng, tính cách hào sảng, phóng khoáng, đủ tài lộc vẹn toàn, giỏi kiếm tiền và tiêu tiền cũng nhiều.
 
@@ -101,7 +101,7 @@ Cung Mệnh tọa tại Tỵ, có **Liêm Trinh Hãm địa** và **Tham Lang H�
 **Lưu Niên Văn Tinh:** Có năng khiếu văn chương, mỹ thuật, âm nhạc, tài ăn nói, thu phục lòng người.`,
   palaceQuanLoc: `**Đánh giá: KHÁ TỐT (67/100 điểm)**
 
-Cung Quan Lộc tọa tại Dậu, **Thân cư Quan Lộc** — tâm huyết với nghề nghiệp.
+Cung Quan Lộc tọa tại Ngọ, **Thân cư Quan Lộc** — tâm huyết với nghề nghiệp.
 
 **Vũ Khúc:** Chủ về ngành tài chính tiền tệ, ngân hàng, kinh doanh. Những công việc thuộc hành Kim đều hợp.
 
@@ -116,7 +116,7 @@ Cung Quan Lộc tọa tại Dậu, **Thân cư Quan Lộc** — tâm huyết v�
 **Thiên Không + Địa Không:** Công danh có thể dang dở, dễ bị biến cố. Cần kiên trì vượt qua.`,
   palaceTaiBach: `**Đánh giá: KHÁ TỐT (69/100 điểm)**
 
-Cung Tài Bạch tọa tại Sửu, có **Tử Vi Đắc địa** và **Phá Quân Vượng địa**.
+Cung Tài Bạch tọa tại Tuất, có **Tử Vi Đắc địa** và **Phá Quân Vượng địa**.
 
 **Tử Vi:** Nguồn tiền tài sung túc, chủ về chức tước và bổng lộc.
 
@@ -129,7 +129,7 @@ Cung Tài Bạch tọa tại Sửu, có **Tử Vi Đắc địa** và **Phá Qu�
 **Địa Kiếp Hãm:** Cẩn trọng phá tán, hao tài lớn khi gặp hạn. Tiền đến bất ngờ cũng dễ đi bất ngờ.`,
   palacePhuThe: `**Đánh giá: KHÁ TỐT (65/100 điểm)**
 
-Cung Phu Thê tọa tại Mão, có **Thiên Phủ Bình hòa**.
+Cung Phu Thê tọa tại Tý, có **Thiên Phủ Bình hòa**.
 
 **Thiên Phủ:** Bạn dễ lấy vợ trẻ, giỏi giang, nhanh nhẹn, gia đình vợ có điều kiện, được vợ chăm sóc chiều chuộng.
 
@@ -140,7 +140,7 @@ Cung Phu Thê tọa tại Mão, có **Thiên Phủ Bình hòa**.
 **Kình Dương Hãm:** Nên kết hôn muộn, nếu sớm dễ trắc trở, tan vỡ. Cần chú ý bạo lực gia đình.`,
   palacePhuMau: `**Đánh giá: BÌNH HÒA (52/100 điểm)**
 
-Cung Phụ Mẫu tọa tại Ngọ.
+Cung Phụ Mẫu tọa tại Mão.
 
 **Cự Môn:** Sao Cự Môn ở cung Phụ Mẫu là ám tinh, gây bất lợi. Bạn có thể làm con nuôi hoặc cha mẹ ốm đau. Tình cảm với cha mẹ không tốt đẹp, ít được quan tâm.
 
@@ -153,7 +153,7 @@ Cung Phụ Mẫu tọa tại Ngọ.
 **Tử + Tuần:** Cha mẹ hay mắc bệnh tật, sức khỏe không tốt. Mối nhân duyên với cha mẹ không sâu sắc.`,
   palaceHuynhDe: `**Đánh giá: KHÁ TỐT (64/100 điểm)**
 
-Cung Huynh Đệ tọa tại Thìn.
+Cung Huynh Đệ tọa tại Sửu.
 
 **Thanh Long:** Anh chị em hòa thuận, yêu thương nhau, đều ngoan ngoãn, nhân hậu, giàu tình nghĩa, có học thức.
 
@@ -164,20 +164,26 @@ Cung Huynh Đệ tọa tại Thìn.
 **Suy + Hỏa Tinh:** Đông anh chị em, cuộc sống thuận lợi, sự nghiệp thành đạt.`,
   palaceTuTuc: `**Đánh giá: KHÁ TỐT (69/100 điểm)**
 
-Cung Tử Tức tọa tại Dần, có **Thái Âm Hãm địa**.
+Cung Tử Tức tọa tại Hợi, Vô chính diệu.
 
-**Thái Âm + Hỏa Tinh:** Có con gái, con cường tráng, năng động. Cách nuôi dạy con tốt.
+**Lộc Tồn:** Bạn có con muộn, con cái phải ở xa cha mẹ. Tuy ít con nhưng con cái đều ngoan ngoãn, hiếu thảo và giỏi giang.
 
-**Thanh Long + Phượng Các:** Con thông minh, giỏi giang, thành đạt, hiếu thảo.
+**Phượng Các + Giải Thần:** Bạn được hưởng phúc về mặt con cái. Dễ sinh quý tử, con cái sinh ra dễ nuôi, thông minh, tuấn kiệt, sau này thành danh.
 
-**Thiên Quý:** Con có tình cảm tốt với cha mẹ, hiếu thuận.
+**Thiên Mã:** Con cái giỏi giang, đa tài, có khả năng tự gây dựng sự nghiệp và có tính độc lập cao. Con hay phải đi xa từ sớm.
 
-**Lộc Tồn + Bát Tọa:** Con ít, nhưng mỗi đứa đều có điều kiện, được hưởng phúc.
+**Thiên Hình:** Con cái giỏi giang, thành đạt, có công danh sự nghiệp vinh hiển, có duyên với quân đội, binh quyền.
 
-**Thiên Hư:** Cẩn trọng việc nuôi dạy, tránh chiều chuộng quá mức.`,
+**Thiên Hư:** Con cái khi nhỏ thường mắc nhiều bệnh tật, nghịch ngợm, khó dạy bảo. Nếu biết cách dạy dỗ, làm bạn với con thì tương lai chúng sẽ hiếu thuận.
+
+**Bác Sĩ:** Dễ ít con, muộn con, chậm đường con cái. Có thể cần can thiệp y học.
+
+**Tuế Phá:** Con thường ngỗ nghịch, khó dạy, phá của, hay cãi. Không được như mong đợi.
+
+**Bát Tọa:** Con cái có điều kiện, được hưởng phúc.`,
   palaceTatAch: `**Đánh giá: BÌNH HÒA (50/100 điểm)**
 
-Cung Tật Ách tọa tại Tý.
+Cung Tật Ách tọa tại Dậu.
 
 **Thiên Cơ Đắc:** Hay lo nghĩ, căng thẳng thần kinh, dễ mất ngủ vì suy nghĩ nhiều.
 
@@ -190,40 +196,62 @@ Cung Tật Ách tọa tại Tý.
 **Đại Vận đến hạn:** Cần chú ý sức khỏe tâm thần, tránh căng thẳng kéo dài. Tập thể dục thường xuyên, thiền định tốt cho tinh thần.`,
   palaceDienTrach: `**Đánh giá: HƠI XẤU (49/100 điểm)**
 
-Cung Điền Trạch tọa tại Thân, có **Thái Dương Hãm địa** và **Hóa Kỵ Đắc địa**.
+Cung Điền Trạch tọa tại Tỵ, có **Thiên Đồng Miếu địa** và **Thiên Lương Vượng địa**.
 
-**Thái Dương Hãm + Hóa Kỵ:** Nhà cửa hay trục trặc, đầu tư đất đai không thuận lợi. Khó tích lũy được bất động sản.
+**Thiên Đồng + Thiên Lương:** Bạn không được hưởng nhà cửa từ người đời trước mà phải tự thân kiếm tiền mua nhà mua đất. Có nhà cũng khó giữ được lâu bền.
 
-**Tang Môn + Bệnh Phù:** Nhà phong thủy không tốt, người ở hay đau ốm, mệt mỏi.
+**Văn Xương Đắc:** Nhà cửa đẹp, ở gần tiệm sách, văn phòng phẩm hoặc trường học.
 
-**Địa Võng:** Khó tạo dựng cơ đồ từ nhà đất. Cần cẩn trọng khi mua bán sang nhượng.
+**Thai Phụ:** Có điền sản, có thể được tặng hoặc thừa hưởng của cải từ người đời trước. Trong nhà treo nhiều giấy khen, giải thưởng.
 
-**Ân Quang:** Dù khó khăn nhưng về già vẫn có nơi ở ổn định, được con cái hỗ trợ.`,
+**Phi Liêm:** Trong nhà thường nhiều côn trùng, cần lau dọn khử khuẩn thường xuyên.
+
+**Linh Tinh:** Tai họa về nhà cửa, nếu có đất tổ tiên để lại cũng không giữ được lâu bền. Hay gặp ốm đau, căng thẳng đầu óc.
+
+**Tuyệt:** Gây trở ngại cho việc tạo dựng của cải, nhà cửa lâu dài. Nhà ở thường trong ngõ hẻm, tối tăm, vắng vẻ.
+
+**Thái Tuế:** Dễ có biến động về nhà cửa, thay đổi chỗ ở.`,
   palaceNoBoc: `**Đánh giá: HƠI XẤU (46/100 điểm)**
 
-Cung Nô Bộc tọa tại Tuất, có **Tử Vi Đắc địa** và **Phá Quân Vượng địa**.
+Cung Nô Bộc tọa tại Mùi, có **Thái Dương Hãm địa** và **Hóa Kỵ Đắc địa**.
 
-**Tử Vi + Phá Quân + Đà La + Địa Kiếp:** Bè bạn ít, dễ bị phản bội, cẩn trọng mất tiền vì bạn bè. Bạn bè đến rồi đi, khó có tri kỷ lâu dài.
+**Thái Dương Hãm:** Chủ về dễ bị bạn bè hoặc người dưới quyền oán trách. Bạn hiếu khách, bạn bè nhiều nhưng tri kỷ ít.
 
-**Nguyệt Đức + Thiên Khôi:** Dù vậy vẫn có vài người bạn trung thành giúp đỡ về tài chính.
+**Hóa Kỵ:** Bạn bè bằng mặt không bằng lòng, hay bị nói xấu, oán hại. Dễ mắc thị phi, kiện tụng với bạn bè.
 
-**Thiên Hỷ:** Giao thiệp vui vẻ, hài hước, được bạn bè quý mến.
+**Quốc Ấn:** Bạn bè đa số là người thông minh, giỏi giang, có khí chất. Bạn có thể làm lãnh đạo, nắm chức vị chủ chốt.
 
-**Địa Kiếp Hãm:** Cảnh giác với bạn bè lừa gạt tiền bạc.`,
-  palacePhucDuc: `**Đánh giá: CỰC TỐT (85/100 điểm)**
+**Ân Quang:** Có những người phụ tá trung hậu, đắc lực và đáng tin cậy. Bạn được hưởng phúc báo từ sự nhân nghĩa.
 
-Cung Phúc Đức tọa tại Mùi, có **Thiên Đồng Miếu địa** và **Thiên Lương Vượng địa**.
+**Tang Môn:** Cả đời phải lo lắng cho bạn bè, bị bạn bè gây nhiều phiền toái.
 
-**Thiên Đồng Miếu địa + Thiên Lương Vượng địa:** Phúc đức tổ tiên dồi dào. Bạn hưởng phúc từ dòng họ lớn mạnh, gia đình có nhiều người thành đạt.
+**Bệnh Phù:** Có ít bạn bè, ít giao lưu. Lười ra ngoài kết bạn, có thể bị cô lập.
 
-**Văn Xương Đắc địa:** Dòng họ có truyền thống khoa bảng, văn chương.
+**Thiên Khốc:** Có ít bạn bè, hay phải buồn vì bạn bè, đồng nghiệp.
 
-**Thai Phụ:** Tổ tiên ban phúc lành, có thể sinh ra trong gia đình quý phái.
+**Địa Võng:** Nhờ bạn bè tốt bụng giúp đỡ, kẻ xấu khó lòng hãm hại được bạn.`,
+  palacePhucDuc: `**Đánh giá: RẤT TỐT (85/100 điểm)**
 
-**Linh Tinh:** Có thể có một số biến cố trong dòng họ, nhưng không ảnh hưởng lớn nhờ phúc đức dày.`,
+Cung Phúc Đức tọa tại Thìn, có **Thiên Tướng Đắc địa**.
+
+**Thiên Tướng Đắc địa:** Phúc thọ vẹn toàn, họ hàng có thể giàu sang. Bạn được hưởng phúc đức tổ tiên dồi dào.
+
+**Đường Phù:** Được hưởng phúc tổ tiên để lại nên gặp nhiều may mắn. Dòng họ có nhà thờ lớn, bề thế, uy nghi. Mồ mả tổ tiên được trông nom cẩn thận, khang trang.
+
+**Tấu Thư:** Dòng họ thường có nhiều người học thức cao, xuất phát từ dòng dõi nhà nho, có truyền thống học hành giỏi giang, đỗ đạt.
+
+**Hồng Loan:** Trong dòng họ đàn bà thọ hơn đàn ông, họ hàng có nhiều người thành danh, sống tình cảm. Bạn có thể gặp quý nhân là người khác giới giúp đỡ.
+
+**Thiên Việt:** Thường được nhiều quý nhân phù hộ, giúp đỡ. Gia tộc, dòng họ có nhiều người xuất chúng, đỗ đạt cao.
+
+**Thiên Quan:** Ông bà tổ tiên thường làm việc thiện, đem lại nhiều phúc đức may mắn cho bạn.
+
+**Trực Phù:** Tổ tiên để lại nhiều phước đức cho con cháu. Dòng họ nhiều người hiền lành, chất phác.
+
+**Quả Tú:** Có ít họ hàng, người thân ly hương nhiều nơi.`,
   palaceThienDi: `**Đánh giá: KHÁ TỐT (60/100 điểm)**
 
-Cung Thiên Di tọa tại Hợi.
+Cung Thiên Di tọa tại Thân.
 
 **Thiếu Âm:** Đi xa gặp nhiều người yêu quý, giúp đỡ. Có duyên với phương xa.
 
@@ -232,27 +260,35 @@ Cung Thiên Di tọa tại Hợi.
 **Đại Hao:** Cẩn trọng hao tài khi đi xa, du lịch hoặc công tác. Quản lý chi tiêu cẩn thận.
 
 **Không có chính tinh tại Thiên Di:** Dễ bị chi phối bởi môi trường ngoại cảnh, cần giữ vững lập trường khi xa nhà.`,
-  yearly2026: `**Năm 2026 (Bính Ngọ) — 22 tuổi. Tiểu vận tại cung Dần.**
+  yearly2026: `**Năm 2026 (Bính Ngọ) — 23 tuổi. Tiểu vận tại cung Nhâm Thân.**
 
-**Năm Bính Ngọ:** Lưu Thái Tuế nhập mệnh, có nhiều biến động trong cuộc sống. Tuổi trẻ có nhiều cơ hội học tập và phát triển.
+**Năm 2026 là năm Hạn:** Gặp năm hạn, trong năm có những vận hạn, tai hoạ lớn nhỏ. Công việc, sự nghiệp, sức khỏe và các mối quan hệ có thể bị ảnh hưởng khá nhiều.
+
+**Tuổi Giáp Thân với năm Bính Ngọ:** Can tuổi sinh can năm vận, tiểu vận khá xấu. Cuộc sống và công việc ban đầu gặp nhiều bất lợi nhưng sau có thể thành công.
+
+**Mệnh Thủy với cung Nhâm Thân:** Hành cung tiểu vận sinh cho hành mệnh, tiểu vận tốt, có thể thực hiện được nhiều dự định trong công việc. Các mối quan hệ khác giới có xu hướng phát triển tốt.
 
 **Các sao lưu đáng chú ý:**
-- Lưu Kình Dương: cẩn trọng tai nạn, tranh cãi.
-- Lưu Đà La: cẩn trọng bệnh tật kéo dài.
-- Lưu Hóa Khoa: có cơ hội học tập, thi cử tốt.
-- Lưu Thiên Mã: có sự thay đổi chỗ ở, di chuyển nhiều.
+- Lưu Thái Tuế nhập Phụ Mẫu: chú ý sức khỏe cha mẹ.
+- Lưu Tang Môn nhập Điền Trạch: hao hụt nhà cửa, đất đai.
+- Lưu Bạch Hổ nhập Tử Tức: lo lắng cho con cái.
+- Lưu Kình Dương nhập Phụ Mẫu: cha mẹ không hòa thuận.
+- Lưu Đà La nhập Huynh Đệ: anh chị em tranh cãi.
+- Lưu Thiên Mã nhập Điền Trạch: thay đổi chỗ ở.
+- Lưu Lộc Tồn nhập Mệnh: có cơ hội kiếm tiền lớn.
 
-**Tháng 2/2026 (Tân Mão):** Cần chú ý sức khỏe, tránh tranh cãi không cần thiết.`,
+**Tháng 2/2026 (Tân Mão): Tháng xấu.** Ngày tốt: 1, 2, 7, 8, 11, 12, 17, 18, 21, 22, 27, 28. Ngày xấu: 5, 6, 9, 10, 15, 16, 19, 20, 25, 26, 29.`,
   conclusion: `Tracuutuvi.com đã gửi đến bạn bản lá số chi tiết cùng những luận giải về các sao và ý nghĩa của chúng trong từng cung của **Nguyễn Trịnh Hoàng Nguyên**.
 
 **Tổng kết điểm mạnh:**
-- Cung Phúc Đức CỰC TỐT (85/100) — phúc đức tổ tiên dồi dào
-- Cung Mệnh TỐT (73/100) — Liêm Trinh Hóa Lộc, phóng khoáng tài lộc
-- Cung Tài Bạch KHÁ TỐT (69/100) — Tử Vi tọa thủ, tiền tài sung túc
+- Cung Phúc Đức RẤT TỐT (85/100) — Thiên Tướng tọa thủ, phúc đức tổ tiên dồi dào, dòng họ khoa bảng
+- Cung Mệnh TỐT (73/100) — Liêm Trinh Hóa Lộc, phóng khoáng tài lộc, Hữu Bật hộ trì
+- Cung Tài Bạch KHÁ TỐT (69/100) — Tử Vi tọa thủ, Phá Quân Hóa Quyền, tiền tài sung túc
 
 **Cần lưu ý:**
-- Cung Nô Bộc Hơi xấu (46/100) — cẩn trọng bạn bè, dễ bị phản bội
-- Cung Điền Trạch Hơi xấu (49/100) — nhà cửa trục trặc, đầu tư đất đai khó khăn
+- Cung Nô Bộc Hơi xấu (46/100) — Thái Dương Hãm + Hóa Kỵ, cẩn trọng bạn bè phản bội, thị phi
+- Cung Điền Trạch Hơi xấu (49/100) — Thiên Đồng + Linh Tinh, nhà cửa trục trặc, đầu tư đất đai khó khăn
+- Năm 2026 là năm Hạn — cẩn trọng sức khỏe, các mối quan hệ và tài chính
 
 **Lời khuyên:** Lá số tử vi không ấn định cuộc đời bạn. Bạn hoàn toàn có thể dùng sự cố gắng, nỗ lực và tu tập để thay đổi cuộc đời, tích phúc cải mệnh. Chúc Hoàng Nguyên luôn mạnh khỏe, hạnh phúc và thành công!`,
 };
