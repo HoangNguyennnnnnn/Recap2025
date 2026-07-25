@@ -20,6 +20,7 @@ import HnaGallery from './components/features/hna/HnaGallery';
 import WomensDayPage from './components/features/womensday/WomensDayPage';
 import FortunePage from './components/features/fortune/FortunePage';
 import FortuneAnalysisPage from './components/features/fortune/FortuneAnalysisPage';
+import DreamGame from './components/features/dreamgame/DreamGame';
 
 // Page transition variants
 const pageVariants = {
@@ -53,7 +54,25 @@ function App() {
                 variants={pageVariants}
                 transition={pageTransition}
               >
-                <AuthGate onSuccess={() => navigate('/')} />
+                <AuthGate onSuccess={() => navigate('/dream-game')} />
+              </motion.div>
+            }
+          />
+
+          {/* Dream Game Route — standalone, no navbar */}
+          <Route
+            path="/dream-game"
+            element={
+              <motion.div
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                variants={pageVariants}
+                transition={pageTransition}
+              >
+                <ProtectedRoute>
+                  <DreamGame />
+                </ProtectedRoute>
               </motion.div>
             }
           />

@@ -1,8 +1,12 @@
 import { useState, useEffect, useRef, FormEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { storeToken } from '../utils/auth';
+import { storeToken, generateToken } from '../utils/auth';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+
+// Offline fallback passcode — lets the gate open even when the backend is down
+// (the gift has to work on a laptop with no server running).
+const LOCAL_PASSCODE = import.meta.env.VITE_AUTH_PASSCODE || '26072026';
 
 interface AuthGateProps {
   onSuccess: () => void;
@@ -15,9 +19,15 @@ const AuthGate = ({ onSuccess }: AuthGateProps) => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [rememberMe, setRememberMe] = useState(true);
   const inputRef = useRef<HTMLInputElement>(null);
+  const requestRef = useRef<AbortController | null>(null);
+  const navigateTimerRef = useRef<number | null>(null);
 
   useEffect(() => {
     inputRef.current?.focus();
+    return () => {
+      requestRef.current?.abort();
+      if (navigateTimerRef.current !== null) clearTimeout(navigateTimerRef.current);
+    };
   }, []);
 
   const validateDate = (input: string): boolean => {
@@ -38,35 +48,51 @@ const AuthGate = ({ onSuccess }: AuthGateProps) => {
 
     setIsLoading(true);
 
+    const unlock = (token: string) => {
+      setIsSuccess(true);
+      storeToken(token, rememberMe);
+      // Wait for animation to complete before navigating
+      navigateTimerRef.current = window.setTimeout(() => onSuccess(), 2000);
+    };
+
+    const controller = new AbortController();
+    requestRef.current = controller;
+    const timeout = window.setTimeout(() => controller.abort(), 5000);
+
     try {
-      // Call the server API to verify passcode
+      // Call the server API to verify passcode (5s budget, then go offline)
       const response = await fetch(`${API_URL}/api/auth/verify`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ passcode: dateInput }),
+        signal: controller.signal,
       });
 
       const data = await response.json();
 
       if (response.ok && data.success && data.token) {
-        // Success! Store the JWT token from server
-        setIsSuccess(true);
-        storeToken(data.token, rememberMe);
-
-        // Wait for animation to complete before navigating
-        setTimeout(() => {
-          onSuccess();
-        }, 2000);
+        unlock(data.token);
+      } else if (dateInput === LOCAL_PASSCODE) {
+        // Server disagrees (stale AUTH_PASSCODE env) but the date is right — let her in.
+        unlock(generateToken());
       } else {
         setIsLoading(false);
-        setError(data.message || "That's not quite right... Try our special date ❤️");
+        setError("That's not quite right... Try our special date ❤️");
       }
     } catch (err) {
+      // Server unreachable — verify locally so the game still opens
+      if (dateInput === LOCAL_PASSCODE) {
+        unlock(generateToken());
+        return;
+      }
       console.error('Auth error:', err);
       setIsLoading(false);
-      setError('Connection error. Please try again.');
+      setError('Chưa đúng rồi... thử lại ngày của chúng ta nhé ❤️');
+    } finally {
+      clearTimeout(timeout);
+      if (requestRef.current === controller) requestRef.current = null;
     }
   };
 

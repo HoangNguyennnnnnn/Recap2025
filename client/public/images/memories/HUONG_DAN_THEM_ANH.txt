@@ -1,0 +1,17 @@
+═══════════════════════════════════════════════════════════════
+   HƯỚNG DẪN THÊM ÁNH KỶ NIỆM THỰC TẾ VÀO GAME
+═══════════════════════════════════════════════════════════════
+
+Bạn copy các file ảnh kỷ niệm vào thư mục này:
+  client/public/images/memories/
+
+Danh sách file ảnh kỷ niệm của bạn:
+
+1. vietphu.jpg     -> Ảnh dã ngoại Việt Phủ Thành Chương (27-28/08/2023)
+2. distance1.jpg   -> Ảnh giai đoạn yêu xa lần 1
+3. distance2.jpg   -> Ảnh giai đoạn yêu xa lần 2 (2 màn hình nhìn nhau)
+4. memories.jpg    -> Ảnh kỷ niệm chung (bảo tàng, hẹn hò, ngày về, sân bay...)
+
+💡 Mẹo nhỏ:
+- Game hỗ trợ các định dạng ảnh (.jpg, .png, .webp).
+- Khi bạn đặt file đúng tên vào thư mục này, trong Sổ Kỷ Niệm (Journal) của game sẽ tự động hiển thị tấm ảnh kỷ niệm tương ứng!
