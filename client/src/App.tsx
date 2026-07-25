@@ -54,7 +54,7 @@ function App() {
                 variants={pageVariants}
                 transition={pageTransition}
               >
-                <AuthGate onSuccess={() => navigate('/dream-game')} />
+                <AuthGate onSuccess={(dest) => navigate(dest)} />
               </motion.div>
             }
           />

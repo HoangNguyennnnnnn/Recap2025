@@ -34,19 +34,12 @@ router.post('/verify', authLimiter, async (req: Request, res: Response) => {
       });
     }
 
-    // Get AUTH_PASSCODE from environment
-    const AUTH_PASSCODE = process.env.AUTH_PASSCODE;
+    // Get passcodes from environment
+    const AUTH_PASSCODE_MAIN = process.env.AUTH_PASSCODE_MAIN || '26072025';
+    const AUTH_PASSCODE_GAME = process.env.AUTH_PASSCODE_GAME || process.env.AUTH_PASSCODE || '26072026';
 
-    if (!AUTH_PASSCODE) {
-      console.error('AUTH_PASSCODE is not set in environment variables');
-      return res.status(500).json({
-        success: false,
-        message: 'Authentication not configured',
-      });
-    }
-
-    // Verify passcode
-    if (passcode !== AUTH_PASSCODE) {
+    // Verify passcode against both
+    if (passcode !== AUTH_PASSCODE_MAIN && passcode !== AUTH_PASSCODE_GAME) {
       return res.status(401).json({
         success: false,
         message: 'Invalid passcode',

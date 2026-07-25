@@ -4,12 +4,12 @@ import { storeToken, generateToken } from '../utils/auth';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
-// Offline fallback passcode — lets the gate open even when the backend is down
-// (the gift has to work on a laptop with no server running).
-const LOCAL_PASSCODE = import.meta.env.VITE_AUTH_PASSCODE || '26072026';
+// Two passcodes: one for the main site, one for the dream game
+const PASSCODE_MAIN = import.meta.env.VITE_AUTH_PASSCODE_MAIN || '26072025';  // → trang chính
+const PASSCODE_GAME = import.meta.env.VITE_AUTH_PASSCODE_GAME || import.meta.env.VITE_AUTH_PASSCODE || '26072026'; // → dream game
 
 interface AuthGateProps {
-  onSuccess: () => void;
+  onSuccess: (destination: string) => void;
 }
 
 const AuthGate = ({ onSuccess }: AuthGateProps) => {
@@ -48,11 +48,11 @@ const AuthGate = ({ onSuccess }: AuthGateProps) => {
 
     setIsLoading(true);
 
-    const unlock = (token: string) => {
+    const unlock = (token: string, dest: string) => {
       setIsSuccess(true);
       storeToken(token, rememberMe);
       // Wait for animation to complete before navigating
-      navigateTimerRef.current = window.setTimeout(() => onSuccess(), 2000);
+      navigateTimerRef.current = window.setTimeout(() => onSuccess(dest), 2000);
     };
 
     const controller = new AbortController();
@@ -73,18 +73,20 @@ const AuthGate = ({ onSuccess }: AuthGateProps) => {
       const data = await response.json();
 
       if (response.ok && data.success && data.token) {
-        unlock(data.token);
-      } else if (dateInput === LOCAL_PASSCODE) {
-        // Server disagrees (stale AUTH_PASSCODE env) but the date is right — let her in.
-        unlock(generateToken());
+        const dest = dateInput === PASSCODE_MAIN ? '/' : '/dream-game';
+        unlock(data.token, dest);
+      } else if (dateInput === PASSCODE_GAME || dateInput === PASSCODE_MAIN) {
+        const dest = dateInput === PASSCODE_MAIN ? '/' : '/dream-game';
+        unlock(generateToken(), dest);
       } else {
         setIsLoading(false);
         setError("That's not quite right... Try our special date ❤️");
       }
     } catch (err) {
       // Server unreachable — verify locally so the game still opens
-      if (dateInput === LOCAL_PASSCODE) {
-        unlock(generateToken());
+      if (dateInput === PASSCODE_GAME || dateInput === PASSCODE_MAIN) {
+        const dest = dateInput === PASSCODE_MAIN ? '/' : '/dream-game';
+        unlock(generateToken(), dest);
         return;
       }
       console.error('Auth error:', err);
