@@ -37,7 +37,7 @@ const ChapterMenu = ({ current, cleared, onJump, onClose, onReset }: Props) => {
           {CHAPTER_ORDER.map((id) => {
             const ch = CHAPTERS[id];
             const done = cleared.includes(id);
-            const open = done || id === current;
+            const open = true; // Allow free chapter selection
             return (
               <button
                 key={id}
