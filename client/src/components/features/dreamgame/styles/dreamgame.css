@@ -1596,7 +1596,7 @@ button.cinema-special-seat { cursor: pointer; background: #7b5b78; border-color:
 
 /* vertical video */
 .reel-portrait {
-  width: min(84vw, 20rem); aspect-ratio: 9 / 16;
+  width: min(92vw, 32rem); aspect-ratio: 9 / 16;
   border-radius: 20px; overflow: hidden;
   background: #08060f;
   border: 1px solid rgba(216, 176, 106, 0.28);

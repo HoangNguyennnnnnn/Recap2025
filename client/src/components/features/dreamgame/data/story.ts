@@ -425,7 +425,7 @@ export const LETTER: string[] = [
 
   'Rồi tớ phạm sai lầm. Khi khoảng cách và nỗi lo tương lai đè nặng, tớ đã hèn nhát tự quyết định buông tay, đẩy cậu ra xa vì sợ cậu phải chờ đợi mòn mỏi. Tớ nợ cậu một lời xin lỗi chân thành nhất.',
 
-  'Rồi ngày 26 tháng 7 năm 2025, cậu về. Ngày hôm đó mình đi lại tất cả: Thống Nhất, Bách Khoa, rạp phim, Hồ Gươm, Hồ Tây. Một ngày, năm nơi, và tớ hiểu ra mình không bao giờ muốn mất cậu một lần nữa.',
+  'Rồi ngày 26 tháng 7 năm 2025, cậu về. Ngày hôm đó mình đi lại tất cả: Thống Nhất, Bách Khoa, rạp phim, Hồ Gươm, Hồ Tây. Và tớ hiểu ra mình không bao giờ muốn mất cậu một lần nữa.',
 
   'Rồi ngày 4 tháng 9 năm 2025, mình lại đứng ở sân bay. Lần này cậu đi sau khi mình đã quay lại, nên cái chỗ trống cạnh cửa kính vừa buồn vừa khác trước. Tớ không muốn giữ cậu ở lại bằng lời hứa hay làm cậu thấy có lỗi vì phải đi. Tớ chỉ muốn để lại một chỗ sáng, để lúc nhìn về cậu biết mình vẫn có đường quay lại.',
 
@@ -433,13 +433,13 @@ export const LETTER: string[] = [
 
   'Nhưng tớ muốn nói với cậu điều này, và đây là lý do thật của cả giấc mơ: lần này khác rồi.',
 
-  'Khác vì bây giờ tớ biết cái mình đang giữ là cái gì. Hồi 2023 tớ yêu cậu kiểu người mới học nhìn — thấy đẹp là mê. Bây giờ tớ yêu cậu kiểu đã mất cậu một lần: cẩn thận hơn, ít lời hơn, và bền hơn nhiều.',
+  'Khác vì bây giờ tớ biết cái mình đang giữ là cái gì.',
 
-  'Khác vì tớ không còn chờ đợi thụ động nữa. Trong màn cuối cậu vừa chơi, tớ phải xoay từng tấm kính để ánh sáng đến được chỗ cậu, và phải đi qua đủ ba ngôi sao mới được tới. Đó đúng là cái tớ đang làm ngoài đời: học, làm, tự sắp lại đời mình — không phải để hết yêu xa, mà để khoảng cách này có ngày ngắn lại. Tớ không muốn là người đứng đó thương nhớ. Tớ muốn là người đang đi.',
+  'Khác vì tớ không còn chờ đợi thụ động nữa. Tớ đang cố gắng : học, làm, tự sắp lại đời mình — không phải để hết yêu xa, mà để khoảng cách này có ngày ngắn lại. Tớ không muốn là người đứng đó thương nhớ. Tớ muốn là người tìm cậu.',
 
   'Khác vì tớ hiểu rồi: mình không đo tình yêu bằng cây số. Mình đo bằng số lần nhắc đến nhau khi người kia không có mặt. Bằng những tin nhắn gửi lúc bên kia đang ngủ, biết là sáng ra mới đọc, vẫn gửi. Bằng việc thấy cái gì hay là muốn kể ngay — chứ không phải kể cho hết chuyện.',
 
-  'Tớ biết yêu xa mệt. Có ngày cậu sẽ thấy vô lý, và cậu có quyền thấy thế. Nếu lúc nào mệt quá thì cứ nói với tớ, đừng gánh một mình. Tớ không cần cậu mạnh mẽ mỗi ngày. Tớ chỉ cần cậu còn ở lại và còn nói thật.',
+  'Tớ biết yêu xa mệt. Có ngày cậu sẽ thấy vô lý, và cậu có quyền thấy thế. Lúc nào mệt thì cứ nói với tớ, đừng gánh một mình. Cậu không cần phải luôn vui vẻ hay luôn mạnh mẽ. Chỉ cần cậu vẫn ở đây, vẫn kể cho tớ nghe — thế là đủ rồi.',
 
   'Còn tớ, tớ hứa mấy điều nhỏ, mà nhỏ thì tớ giữ được. Tớ sẽ không để cậu phải đoán tớ đang nghĩ gì. Tớ sẽ nhớ những chuyện nhỏ của cậu, kể cả cái cậu kể qua rồi quên. Tớ sẽ cố gắng đều, không phải cố gắng từng cơn. Cố gắng để sau này có thể gặp cậu, tớ sẽ có sẵn một chỗ mới để dẫn cậu đi — vì cậu đã dẫn tớ đi nhiều quá rồi, giờ tới lượt tớ.',
 

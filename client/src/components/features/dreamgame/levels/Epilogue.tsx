@@ -129,6 +129,7 @@ const Epilogue = ({ onReplay }: Props) => {
                     preload="metadata"
                     poster={VIDEO_POSTER || undefined}
                     onError={() => { if (!localVideo) setVideoFailed(true); }}
+                    style={{ width: '100%', borderRadius: '12px' }}
                   >
                     <source src={localVideo ?? VIDEO_SRC} type="video/mp4" />
                   </video>
