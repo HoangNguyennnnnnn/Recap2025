@@ -61,18 +61,20 @@ const L0Room = ({ onSolved }: Props) => {
     pluck(NOTE.G5, 0.1, 0.07);
   }, [lit, discovered, seenMarks]);
 
-  // The keyhole, once the wall has been read.
+  // The keyhole auto-opens as soon as the light reaches Hour 10!
   useEffect(() => {
-    if (lit !== 'keyhole' || !seenMarks || finished.current) return;
+    if (lit !== 'keyhole' || finished.current) return;
     finished.current = true;
-    const t1 = setTimeout(() => { sfx.unlock(); setOpening(true); }, 900);
+    setSeenMarks(true);
+    markCipherFound();
+    const t1 = setTimeout(() => { sfx.unlock(); setOpening(true); }, 600);
     const t2 = setTimeout(() => {
       sfx.solved();
       tone(NOTE.C3, { dur: 6, type: 'sine', gain: 0.08 });
-    }, 1700);
-    const t3 = setTimeout(onSolved, 4200);
+    }, 1400);
+    const t3 = setTimeout(onSolved, 3600);
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
-  }, [lit, seenMarks, onSolved]);
+  }, [lit, onSolved]);
 
   /** Clicking the clock face sets the hour to whatever you pointed at. */
   const grabClock = (e: React.MouseEvent<SVGGElement>) => {

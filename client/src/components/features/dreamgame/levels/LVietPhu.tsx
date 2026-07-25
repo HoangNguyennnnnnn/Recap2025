@@ -49,7 +49,7 @@ const LVietPhu = ({ onSolved }: Props) => {
     setTimeout(() => setFlashing(false), 300);
 
     tone(NOTE.C3, { dur: 6, type: 'sine', gain: 0.08 });
-    timerRef.current = setTimeout(onSolved, 5600);
+    timerRef.current = setTimeout(onSolved, 3800);
     return () => { if (timerRef.current) clearTimeout(timerRef.current); };
   }, [isAligned, solved, onSolved]);
 
