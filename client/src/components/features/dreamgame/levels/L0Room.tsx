@@ -67,13 +67,12 @@ const L0Room = ({ onSolved }: Props) => {
     finished.current = true;
     setSeenMarks(true);
     markCipherFound();
-    const t1 = setTimeout(() => { sfx.unlock(); setOpening(true); }, 600);
-    const t2 = setTimeout(() => {
-      sfx.solved();
-      tone(NOTE.C3, { dur: 6, type: 'sine', gain: 0.08 });
-    }, 1400);
-    const t3 = setTimeout(onSolved, 3600);
-    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
+    sfx.unlock();
+    setOpening(true);
+    sfx.solved();
+    tone(NOTE.C3, { dur: 6, type: 'sine', gain: 0.08 });
+    const t = setTimeout(onSolved, 1200);
+    return () => clearTimeout(t);
   }, [lit, onSolved]);
 
   /** Clicking the clock face sets the hour to whatever you pointed at. */
@@ -176,21 +175,26 @@ const L0Room = ({ onSolved }: Props) => {
         </g>
 
         {/* ── door, far left ── */}
-        <g>
+        <g
+          style={{ cursor: glow('keyhole') ? 'pointer' : 'default' }}
+          onClick={() => {
+            if (glow('keyhole')) {
+              finished.current = true;
+              setSeenMarks(true);
+              markCipherFound();
+              sfx.unlock();
+              setOpening(true);
+              sfx.solved();
+              onSolved();
+            }
+          }}
+        >
           <rect x="52" y="146" width="152" height="306" rx="3" fill="#101522"
             stroke="#242c40" strokeWidth="2.5" />
           <rect x="68" y="164" width="120" height="122" rx="2" fill="none" stroke="#1c2334" strokeWidth="1.4" />
           <rect x="68" y="300" width="120" height="134" rx="2" fill="none" stroke="#1c2334" strokeWidth="1.4" />
           {/* keyhole */}
-          <g
-            className={glow('keyhole') ? 'rm-hot on' : 'rm-hot'}
-            onClick={() => {
-              if (glow('keyhole') && !finished.current) {
-                setSeenMarks(true);
-                markCipherFound();
-              }
-            }}
-          >
+          <g className={glow('keyhole') ? 'rm-hot on' : 'rm-hot'}>
             <circle cx="180" cy="330" r="13"
               fill={glow('keyhole') ? 'rgba(228,236,255,0.2)' : 'transparent'} />
             <circle cx="180" cy="326" r="5.5" fill="none"
