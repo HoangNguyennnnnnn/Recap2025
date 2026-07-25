@@ -252,12 +252,12 @@ export const CHAPTERS: Record<ChapterId, ChapterDef> = {
     accent: '#f2a8bd',
     objective: '5 địa điểm kỷ niệm trên bản đồ Hà Nội.',
     intro: [
-      { who: 'narrator', text: 'Tớ nhớ cậu. Nhớ đến mức đi tìm.' },
+      { who: 'me', text: 'Tớ nhớ cậu. Nhớ đến mức đi tìm.' },
       { who: 'her', text: 'Tớ về rồi. Đi đâu bây giờ?' },
       { who: 'me', text: 'Đi hết.' },
     ],
     outro: [
-      { who: 'her', text: 'Lần này mình cẩn thận hơn nhé.' },
+      { who: 'me', text: 'Lần này mình cẩn thận hơn nhé.' },
       { who: 'me', text: 'Lần này tớ biết phải giữ cái gì rồi.' },
     ],
     hints: [
