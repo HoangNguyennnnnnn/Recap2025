@@ -102,7 +102,7 @@ const L2Museum = ({ onSolved }: Props) => {
   };
 
   const swapSlots = (slot: number) => {
-    if (!dark || solving) return;
+    if (solving) return;
     if (pickedSlot === null) {
       setPickedSlot(slot);
       sfx.pick();
@@ -118,7 +118,7 @@ const L2Museum = ({ onSolved }: Props) => {
     setOrder(next);
     setPickedSlot(null);
     sfx.place();
-    if (next.every((id, index) => id === SOLUTION[index])) queue(complete, 700);
+    if (next.every((id, index) => id === SOLUTION[index])) queue(complete, 600);
   };
 
   const toggleLight = () => {
