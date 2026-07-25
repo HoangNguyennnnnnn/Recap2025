@@ -61,19 +61,17 @@ const L0Room = ({ onSolved }: Props) => {
     pluck(NOTE.G5, 0.1, 0.07);
   }, [lit, discovered, seenMarks]);
 
-  // The keyhole auto-opens as soon as the light reaches Hour 10!
+  // The keyhole auto-opens ONLY if the wall marks (note) were found first!
   useEffect(() => {
-    if (lit !== 'keyhole' || finished.current) return;
+    if (lit !== 'keyhole' || finished.current || !seenMarks) return;
     finished.current = true;
-    setSeenMarks(true);
-    markCipherFound();
     sfx.unlock();
     setOpening(true);
     sfx.solved();
     tone(NOTE.C3, { dur: 6, type: 'sine', gain: 0.08 });
     const t = setTimeout(onSolved, 1200);
     return () => clearTimeout(t);
-  }, [lit, onSolved]);
+  }, [lit, onSolved, seenMarks]);
 
   /** Clicking the clock face sets the hour to whatever you pointed at. */
   const grabClock = (e: React.MouseEvent<SVGGElement>) => {
@@ -105,7 +103,8 @@ const L0Room = ({ onSolved }: Props) => {
     return () => window.removeEventListener('keydown', onKey);
   }, []);
 
-  const glow = (id: string) => lit === id;
+  // Keyhole only glows if the wall marks (note) have been discovered
+  const glow = (id: string) => lit === id && (id !== 'keyhole' || seenMarks);
 
   return (
     <SceneShell
@@ -178,10 +177,8 @@ const L0Room = ({ onSolved }: Props) => {
         <g
           style={{ cursor: glow('keyhole') ? 'pointer' : 'default' }}
           onClick={() => {
-            if (glow('keyhole')) {
+            if (glow('keyhole') && seenMarks) {
               finished.current = true;
-              setSeenMarks(true);
-              markCipherFound();
               sfx.unlock();
               setOpening(true);
               sfx.solved();
