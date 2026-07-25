@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
-import { ChapterId, CHAPTER_ORDER } from '../data/story';
+import { ChapterId, CHAPTER_ORDER, CHAPTERS } from '../data/story';
 import { clearCipherFound } from '../data/cipher';
 
 export type Phase =
@@ -71,10 +71,18 @@ export function useGameState() {
     setPhase('playing');
   }, []);
 
-  /** Puzzle solved → play the outro narration. */
+  /** Puzzle solved → play outro narration, or transition directly if no outro lines. */
   const solve = useCallback(() => {
-    setSave(s => s.cleared.includes(s.chapter) ? s : { ...s, cleared: [...s.cleared, s.chapter] });
-    setPhase('outro');
+    setSave(s => {
+      const nextSave = s.cleared.includes(s.chapter) ? s : { ...s, cleared: [...s.cleared, s.chapter] };
+      const ch = CHAPTERS[s.chapter];
+      if (!ch?.outro || ch.outro.length === 0) {
+        setPhase('transition');
+      } else {
+        setPhase('outro');
+      }
+      return nextSave;
+    });
   }, []);
 
   const outroDone = useCallback(() => setPhase('transition'), []);
