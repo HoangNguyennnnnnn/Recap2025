@@ -13,23 +13,41 @@ interface Props {
 const CHAR_MS = 26;
 
 /**
- * Bottom dialogue box with typewriter reveal. Click / space / enter
- * finishes the current line, then advances. Everything is skippable —
- * nobody should be trapped in someone else's feelings.
+ * Bottom dialogue box with typewriter reveal. Click / space / enter / tap
+ * finishes the current line, then advances. Auto advances after typing if no tap.
  */
 const Narration = ({ lines, onDone, accent }: Props) => {
   const [idx, setIdx] = useState(0);
   const [shown, setShown] = useState('');
   const [complete, setComplete] = useState(false);
   const timer = useRef<number | null>(null);
+  const autoTimer = useRef<number | null>(null);
 
   const line = lines[idx];
+
+  const advance = useCallback(() => {
+    if (autoTimer.current) { clearTimeout(autoTimer.current); autoTimer.current = null; }
+    if (!complete) {
+      if (timer.current) { clearTimeout(timer.current); timer.current = null; }
+      setShown(line?.text ?? '');
+      setComplete(true);
+      autoTimer.current = window.setTimeout(() => {
+        if (idx + 1 >= lines.length) onDone();
+        else setIdx(i => i + 1);
+      }, 2400);
+      return;
+    }
+    sfx.click();
+    if (idx + 1 >= lines.length) onDone();
+    else setIdx(idx + 1);
+  }, [complete, idx, line?.text, lines.length, onDone]);
 
   // Type the current line out
   useEffect(() => {
     if (!line) return;
     setShown('');
     setComplete(false);
+    if (autoTimer.current) { clearTimeout(autoTimer.current); autoTimer.current = null; }
     let i = 0;
     const tick = () => {
       i++;
@@ -38,26 +56,20 @@ const Narration = ({ lines, onDone, accent }: Props) => {
       if (i >= line.text.length) {
         setComplete(true);
         timer.current = null;
+        autoTimer.current = window.setTimeout(() => {
+          if (idx + 1 >= lines.length) onDone();
+          else setIdx(prev => prev + 1);
+        }, 2400);
         return;
       }
       timer.current = window.setTimeout(tick, CHAR_MS);
     };
-    timer.current = window.setTimeout(tick, 260);
-    return () => { if (timer.current) clearTimeout(timer.current); };
-  }, [line]);
-
-  const advance = useCallback(() => {
-    if (!complete) {
-      // reveal the rest instantly
-      if (timer.current) { clearTimeout(timer.current); timer.current = null; }
-      setShown(line?.text ?? '');
-      setComplete(true);
-      return;
-    }
-    sfx.click();
-    if (idx + 1 >= lines.length) onDone();
-    else setIdx(idx + 1);
-  }, [complete, idx, line, lines.length, onDone]);
+    timer.current = window.setTimeout(tick, 220);
+    return () => {
+      if (timer.current) clearTimeout(timer.current);
+      if (autoTimer.current) clearTimeout(autoTimer.current);
+    };
+  }, [idx, line, lines.length, onDone]);
 
   // Keyboard
   useEffect(() => {
@@ -128,7 +140,7 @@ const Narration = ({ lines, onDone, accent }: Props) => {
             animate={{ opacity: [0.3, 1, 0.3] }}
             transition={{ duration: 1.8, repeat: Infinity }}
           >
-            ▾
+            ▾ bấm để tiếp tục
           </motion.span>
         )}
       </motion.div>

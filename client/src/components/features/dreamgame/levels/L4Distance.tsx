@@ -44,7 +44,7 @@ const L4Distance = ({ onSolved }: Props) => {
         advanced.current = true;
         onSolvedRef.current();
       }
-    }, 5300);
+    }, 2200);
     return () => {
       window.clearTimeout(crackTimer);
       window.clearTimeout(leaveTimer);

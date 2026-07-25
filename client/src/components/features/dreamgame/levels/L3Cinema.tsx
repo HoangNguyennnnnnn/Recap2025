@@ -65,7 +65,7 @@ const L3Cinema = ({ onSolved }: Props) => {
 
     setSolved(true);
     sfx.solved();
-    queue(onSolved, 4800);
+    queue(onSolved, 1600);
   };
 
   return (

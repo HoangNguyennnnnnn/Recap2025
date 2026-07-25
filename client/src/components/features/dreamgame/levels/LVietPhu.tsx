@@ -235,10 +235,11 @@ const LVietPhu = ({ onSolved }: Props) => {
             <motion.div
               initial={{ opacity: 0, scale: 0.7, rotate: -3 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              onClick={onSolved}
               style={{
                 position: 'absolute', zIndex: 90, background: '#fcfaf7',
                 border: '3px solid #e0d5c1', padding: '16px 16px 20px', borderRadius: '18px',
-                boxShadow: '0 30px 70px rgba(0,0,0,0.9)', textAlign: 'center',
+                boxShadow: '0 30px 70px rgba(0,0,0,0.9)', textAlign: 'center', cursor: 'pointer',
                 width: 'min(500px, 92vw)', display: 'flex', flexDirection: 'column', alignItems: 'center'
               }}
             >

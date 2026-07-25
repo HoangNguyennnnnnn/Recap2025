@@ -32,7 +32,7 @@ const LAirport = ({ onSolved }: Props) => {
     if (!isAligned || solved) return;
     setSolved(true);
     sfx.solved();
-    queue(onSolved, 5200);
+    queue(onSolved, 1600);
   }, [isAligned, onSolved, solved]);
 
   const cycleGate = () => {

@@ -47,7 +47,7 @@ const L5Reunion = ({ onSolved }: Props) => {
         setSolved(true);
         sfx.solved();
         tone(NOTE.C3, { dur: 5, type: 'sine', gain: 0.08 });
-        timerRef.current = setTimeout(onSolved, 5400);
+        timerRef.current = setTimeout(onSolved, 1800);
       }
     } else {
       sfx.wrong();

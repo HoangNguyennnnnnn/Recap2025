@@ -129,26 +129,28 @@ const DreamGame = () => {
         />
       )}
 
-      {/* ── shard earned & Next Chapter Button ── */}
+      {/* ── shard earned notification ── */}
       <AnimatePresence>
-        {(shardToast || cleared.includes(chapter)) && chapter !== 'epilogue' && (
+        {shardToast && (
           <motion.div
             className="shard-toast"
-            initial={{ opacity: 0, y: 30, scale: 0.94 }}
+            initial={{ opacity: 0, y: -20, scale: 0.94 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -14 }}
+            exit={{ opacity: 0, y: -20 }}
             transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-            style={{ cursor: 'pointer', zIndex: 999, background: 'linear-gradient(135deg, rgba(35, 25, 45, 0.95), rgba(65, 45, 80, 0.95))', border: '1.5px solid #ffd27a' }}
-            onClick={() => {
-              sfx.whoosh();
-              setShardToast(null);
-              advance();
+            style={{
+              position: 'fixed',
+              top: '4.5rem',
+              right: '1.2rem',
+              bottom: 'auto',
+              pointerEvents: 'none',
+              zIndex: 80,
             }}
           >
-            <span className="shard-toast-icon">{CHAPTERS[chapter].shard.icon}</span>
-            <span style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-              <b style={{ color: '#ffd27a', fontSize: '0.95rem' }}>✨ Đã giải xong · Mở mảnh kỉ niệm</b>
-              <i style={{ color: '#fff', fontWeight: 600, fontSize: '0.85rem' }}>Bấm vào đây để Sang Chương Tiếp Theo ▶</i>
+            <span className="shard-toast-icon">{CHAPTERS[shardToast].shard.icon}</span>
+            <span>
+              <b>Mảnh kỉ niệm</b>
+              <i>{CHAPTERS[shardToast].shard.title}</i>
             </span>
           </motion.div>
         )}
