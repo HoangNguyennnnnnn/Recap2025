@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { LETTER, LETTER_TITLE, LETTER_SIGNOFF, VIDEO_CAPTION } from '../data/story';
-import { NETFLIX_GIFT, GIFT_READY, VIDEO_SRC, VIDEO_POSTER } from '../data/gift';
+import { VIDEO_SRC, VIDEO_POSTER } from '../data/gift';
 import { sfx } from '../audio/soundEngine';
 
 interface Props { onReplay: () => void; }
@@ -9,15 +9,12 @@ interface Props { onReplay: () => void; }
 /**
  * Epilogue — Dual-column side-by-side layout:
  * Left side: Romantic Letter to Hna
- * Right side: Video Recap & Netflix Gift Box
+ * Right side: Video Recap
  */
 const Epilogue = ({ onReplay }: Props) => {
   const [phase, setPhase] = useState(0); // 0 curtain, 1 revealed
   const [videoFailed, setVideoFailed] = useState(false);
   const [localVideo, setLocalVideo] = useState<string | null>(null);
-  const [giftOpen, setGiftOpen] = useState(false);
-  const [revealed, setRevealed] = useState<Record<string, boolean>>({});
-  const [copied, setCopied] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -34,18 +31,6 @@ const Epilogue = ({ onReplay }: Props) => {
       dur: 9 + Math.random() * 9,
       size: 8 + Math.random() * 12,
     })), []);
-
-  const copy = async (label: string, value: string) => {
-    try {
-      await navigator.clipboard.writeText(value);
-      setCopied(label);
-      sfx.chime();
-      setTimeout(() => setCopied(null), 1800);
-    } catch {
-      setCopied('fail');
-      setTimeout(() => setCopied(null), 1800);
-    }
-  };
 
   const pickFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     const f = e.target.files?.[0];
@@ -129,9 +114,8 @@ const Epilogue = ({ onReplay }: Props) => {
             </section>
           </div>
 
-          {/* ── RIGHT COLUMN: Video & Gift Box ── */}
+          {/* ── RIGHT COLUMN: Video Recap ── */}
           <div className="epi-col-right">
-            {/* Video Section */}
             <section className="epi-section" style={{ margin: 0, width: '100%' }}>
               <h2 className="epi-h2">Một năm của mình</h2>
               <p className="epi-cap">{VIDEO_CAPTION}</p>
@@ -164,82 +148,6 @@ const Epilogue = ({ onReplay }: Props) => {
                   </div>
                 )}
               </div>
-            </section>
-
-            {/* Gift Box Section */}
-            <section className="epi-section" style={{ margin: 0, width: '100%' }}>
-              <h2 className="epi-h2">À, còn cái này nữa</h2>
-
-              {!giftOpen ? (
-                <motion.button
-                  className="gift-box"
-                  onClick={() => { sfx.unlock(); setGiftOpen(true); }}
-                  whileHover={{ scale: 1.04, rotate: -1 }}
-                  whileTap={{ scale: 0.97 }}
-                  animate={{ y: [0, -7, 0] }}
-                  transition={{ y: { duration: 3, repeat: Infinity, ease: 'easeInOut' } }}
-                >
-                  <svg viewBox="0 0 160 150" width="160" height="150">
-                    <rect x="20" y="56" width="120" height="82" rx="6" fill="#2a2038" stroke="#d8b06a" strokeWidth="2" />
-                    <rect x="20" y="42" width="120" height="22" rx="5" fill="#372a48" stroke="#d8b06a" strokeWidth="2" />
-                    <rect x="70" y="42" width="20" height="96" fill="#d8b06a" opacity="0.75" />
-                    <path d="M80 42 C 62 42 50 28 58 18 C 66 8 78 24 80 42 C 82 24 94 8 102 18 C 110 28 98 42 80 42z"
-                      fill="#d8b06a" opacity="0.9" />
-                  </svg>
-                  <span>mở ra</span>
-                </motion.button>
-              ) : (
-                <motion.div
-                  className="gift-card"
-                  initial={{ opacity: 0, scale: 0.94, rotateX: -8 }}
-                  animate={{ opacity: 1, scale: 1, rotateX: 0 }}
-                  transition={{ type: 'spring', stiffness: 150, damping: 18 }}
-                >
-                  <span className="gift-brand">{NETFLIX_GIFT.brand}</span>
-                  <h3>{NETFLIX_GIFT.title}</h3>
-                  <p className="gift-sub">{NETFLIX_GIFT.subtitle}</p>
-
-                  {GIFT_READY ? (
-                    <div className="gift-fields">
-                      {NETFLIX_GIFT.fields.map(f => {
-                        const hidden = f.secret && !revealed[f.label];
-                        return (
-                          <div key={f.label} className="gift-row">
-                            <span className="gift-label">{f.label}</span>
-                            <span
-                              className={`gift-value ${f.copyable ? 'mono' : ''} ${hidden ? 'hidden' : ''}`}
-                              onClick={() => {
-                                if (hidden) { sfx.click(); setRevealed(r => ({ ...r, [f.label]: true })); }
-                              }}
-                            >
-                              {hidden ? '••••••••••' : f.value}
-                            </span>
-                            {f.copyable && !hidden && (
-                              <button className="gift-copy" onClick={() => copy(f.label, f.value)}>
-                                {copied === f.label ? '✓' : 'copy'}
-                              </button>
-                            )}
-                          </div>
-                        );
-                      })}
-                    </div>
-                  ) : (
-                    <div className="gift-pending">
-                      <span>🎟️</span>
-                      <b>Quà đang được niêm phong</b>
-                      <p>Tớ sẽ mở đúng lúc để tài khoản không bị lộ trước ngày của mình.</p>
-                    </div>
-                  )}
-
-                  <p className="gift-note">{NETFLIX_GIFT.note}</p>
-
-                  {NETFLIX_GIFT.link && (
-                    <a className="gift-link" href={NETFLIX_GIFT.link} target="_blank" rel="noreferrer">
-                      {NETFLIX_GIFT.linkLabel}
-                    </a>
-                  )}
-                </motion.div>
-              )}
             </section>
           </div>
         </motion.div>
